@@ -1,0 +1,114 @@
+#popup{
+  display: none;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  padding: 100px 0 0 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 100;
+  overflow: auto;
+  backface-visibility: hidden;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+  @include translate3d(0,0,0);
+  @include animation(slideUp 0.5s);
+  @include animation-easing(cubic-bezier(0.25, 0.46, 0.45, 0.94));
+
+  > div{
+    float: left;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .text{
+    width: 40%;
+    padding: 0 60px 30px 30px;
+  }
+
+  .images{
+    width: 53%;
+    padding: 0;
+    position: relative;
+    img{
+      display: block;
+      margin: 0 0 10px 0;
+      max-width: 100%;
+    }
+  }
+
+  .close {
+    display: none;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    float: none;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    @include animation(poppin 0.5s);
+    @include animation-easing(cubic-bezier(0.25, 0.46, 0.45, 0.94));
+    &:before{
+      display: block;
+      width: 2px;
+      height: 50px;
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 50%;
+      background: #E7563E;
+      -webkit-transform: rotateZ(45deg);
+      transform: rotateZ(45deg);
+    }
+    &:after{
+      display: block;
+      width: 2px;
+      height: 50px;
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 50%;
+      background: #E7563E;
+      -webkit-transform: rotateZ(-45deg);
+      transform: rotateZ(-45deg);
+    }
+    &:hover{
+      &:before, &:after{
+        background: #983b27;
+      }
+    }
+  }
+
+  h2{
+    margin: 0 0 20px 0;
+    font-size: 40px;
+    color: #222;
+    font-weight: bold;
+  }
+
+  h3{
+    margin: 0 0 20px 0;
+    font-size: 15px;
+    color: #222;
+    font-weight: bold;
+  }
+
+  p{
+    margin: 0 0 20px 0;
+    font-size: 20px;
+    color: #222;
+    line-height: 1.2;
+  }
+
+  @include media(0,800){
+    padding: 60px 0 0 0;
+    > div{
+      float: none;
+      width: auto !important;
+    }
+  }
+
+}

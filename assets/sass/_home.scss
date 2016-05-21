@@ -1,0 +1,116 @@
+html.home{
+
+  header{
+    padding: 30px;
+    font-size: 20px;
+    a{
+      display: inline-block;
+      margin: 0 20px 0 0;
+    }
+  }
+
+  .grid{
+    background: url('../img/striped-bg.gif') repeat;
+    @include clearfix;
+    > div{
+      //the box
+      float: left;
+      width: 25%;
+      height: 0;
+      padding: 22% 0 0 0;
+      background-size: cover;
+      position: relative;
+      cursor: pointer;
+      > div{
+        //the content
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 10px;
+        box-sizing: border-box;
+        @include fadeIn(0.2s);
+        h3, p{
+          @include animation(slideUp 0.2s);
+          @include animation-easing(cubic-bezier(0.25, 0.46, 0.45, 0.94));
+        }
+        h3{
+          font-size: 49px;
+          margin: 0;
+          font-weight: bold;
+          text-shadow: rgba(0, 0, 0, 0.3) 2px 2px 0;
+          line-height: 1em;
+        }
+        p{
+          font-size: 14px;
+          font-style: italic;
+          color: #eee;
+        }
+      }
+      &:hover{
+        > div{
+          display: block;
+        }
+      }
+
+      .spinner{
+        position: absolute;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 10;
+        @include fadeIn(0.5s);
+        i{
+          display: block;
+          height: 100px;
+          width: 100px;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          margin: -50px 0 0 -50px;
+          background: url('../img/spinner.png');
+          background-size: contain;
+          @include rotation;
+        }
+      }
+
+      &.loading{
+        .spinner{
+          display: block;
+        }
+      }
+
+      @include media(901,1350){
+        width: 33.333%;
+        padding: 25% 0 0 0;
+      }
+
+      @include media(601,900){
+        width: 50%;
+        padding: 40% 0 0 0;
+      }
+
+      @include media(0,600){
+        width: 100%;
+        padding: 70% 0 0 0;
+      }
+    }
+  }
+
+  body.popup-open{
+    overflow: hidden;
+    #popup{
+      display: block;
+    }
+    .grid{
+      -webkit-filter: blur(20px);
+    }
+    header{
+      -webkit-filter: blur(20px);
+    }
+  }
+}
+
+@import "popup";

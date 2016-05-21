@@ -1,0 +1,82 @@
+@mixin transform($arg){
+  -webkit-transform: #{$arg}; /* Ch <36, Saf 5.1+, iOS, An =<4.4.4 */
+  transform: #{$arg}; /* IE 10, Fx 16+, Op 12.1+ */
+}
+
+@mixin transitionTransform($arg){
+  transition: -webkit-transform (#{$arg}), transform #{$arg};
+}
+
+/* scale */
+
+@mixin scale($x, $y){
+  @include transform(scale(#{$x}, #{$y}));
+}
+
+@mixin scale3d($x, $y, $z){
+  @include transform(scale3d(#{$x}, #{$y}, #{$z}));
+}
+
+@mixin scaleX($x){
+  @include transform(scaleX(#{$x}));
+}
+
+@mixin scaleY($y){
+  @include transform(scaleY(#{$y}));
+}
+
+/* translate */
+
+@mixin translate($x, $y){
+  @include transform(translate(#{$x}, #{$y}));
+}
+
+@mixin translate3d($x, $y, $z){
+  @include transform(translate3d(#{$x}, #{$y}, #{$z}));
+}
+
+@mixin translateX($x){
+  @include transform(translateX(#{$x}));
+}
+
+@mixin translateY($y){
+  @include transform(translateY(#{$y}));
+}
+
+/* rotate */
+
+@mixin rotate($val){
+  @include transform(rotate(#{$val}));
+}
+
+@mixin rotate3d($x, $y, $z, $val){
+  @include transform(rotate3d(#{$x}, #{$y}, #{$z}), #{$val});
+}
+
+@mixin rotateX($amt){
+  @include transform(rotateX(#{$amt}));
+}
+
+@mixin rotateY($amt){
+  @include transform(rotateY(#{$amt}));
+}
+
+@mixin rotateZ($amt){
+  @include transform(rotateZ(#{$amt}));
+}
+
+/* skew */
+
+@mixin skewX($x){
+  @include transform(skewX(#{$x}));
+}
+
+@mixin skewY($y){
+  @include transform(skewY(#{$y}));
+}
+
+/* perspective */
+
+@mixin perspective($z){
+  @include transform(perspective(#{$z}));
+}

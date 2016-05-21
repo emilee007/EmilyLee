@@ -1,0 +1,23 @@
+@mixin keyframes($name){
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin animation($stuff){
+  -webkit-animation: $stuff;
+  animation: $stuff;
+}
+
+@mixin animation-fill-mode($direction){
+  -webkit-animation-fill-mode: $direction;
+  animation-fill-mode: $direction;
+}
+
+@mixin animation-easing($function){
+  -webkit-timing-function: $function;
+  animation-timing-function: $function;
+}

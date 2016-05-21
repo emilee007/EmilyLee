@@ -1,0 +1,41 @@
+@mixin calc($property, $expression) {
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: -moz-calc(#{$expression});
+  #{$property}: calc(#{$expression});
+}
+
+@mixin input-placeholder(){
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+@mixin selection(){
+  *::selection {
+    @content;
+  }
+
+  *::-moz-selection {
+    @content;
+  }
+}
+
+@mixin no-selection(){
+  @include selection(){
+    background: transparent;
+  }
+}
+
+@mixin appearance($val){
+  -webkit-appearance: #{$val};
+  -moz-appearance: #{$val};
+  appearance: #{$val};
+}

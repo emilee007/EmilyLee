@@ -1,0 +1,74 @@
+@include keyframes(poppin){
+  0% {
+    @include scale(0.7, 0.7);
+  }
+  100% {
+    @include scale(1, 1);
+  }
+}
+
+@include keyframes(fadeIn){
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@include keyframes(fadeOut){
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@include keyframes(rotation){
+  100% {
+    @include rotate(360deg);
+  }
+}
+
+@include keyframes(dropIn){
+  0% {
+    @include translateY(-20px);
+    opacity:0;
+  }
+  30% {
+    @include translateY(-20px);
+    opacity:0;
+  }
+  100% {
+    @include translateY(0);
+    opacity:1;
+  }
+}
+
+@include keyframes(slideUp){
+  0% {
+    @include translate(0, 15px);
+    opacity: 0;
+  }
+  100% {
+    @include translate(0,0);
+    opacity: 1;
+  }
+}
+
+@mixin fadeIn($duration){
+  @include animation(fadeIn $duration);
+  @include animation-easing(ease-in-out);
+  @include animation-fill-mode(forwards);
+}
+
+@mixin fadeOut($duration){
+  @include animation(fadeOut $duration);
+  @include animation-easing(ease-in-out);
+  @include animation-fill-mode(forwards);
+}
+
+@mixin rotation{
+  @include animation(rotation 1.5s linear infinite);
+}

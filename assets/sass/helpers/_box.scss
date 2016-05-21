@@ -1,0 +1,43 @@
+@mixin clearfix{
+  &:after{
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin border-radius($int){
+  border-radius: $int;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
+
+@mixin border-top-right-radius($int){
+  border-top-right-radius: $int;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
+
+@mixin border-top-left-radius($int){
+  border-top-left-radius: $int;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
+
+@mixin border-bottom-left-radius($int){
+  border-bottom-left-radius: $int;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
+
+@mixin border-bottom-right-radius($int){
+  border-bottom-right-radius: $int;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
+
+// adds text truncation with ellipsis
+@mixin ellipsify() {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.ellipsify{
+  @include ellipsify;
+}
