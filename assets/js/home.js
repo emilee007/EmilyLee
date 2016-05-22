@@ -14,7 +14,7 @@
 		$grid.on('click', '[rel]', function (e) {
 			_loadPopup($(this));
 		});
-		$popup.on('click', '.close', _hidePopup);
+		$body.on('click', '.close-popup', _hidePopup);
 	}
 
 	function _loadPopup($el) {
@@ -38,7 +38,7 @@
 				$body.addClass('popup-open');
 			}, 50);
 			setTimeout(function(){
-				$popup.find('.close').css('display','block');
+				$body.find('.close-popup').css('display','block');
 			}, 600);
 		}, 10);
 	}
@@ -47,6 +47,7 @@
 		$popup.scrollTop(0);
 		$popup.html('');
 		$body.removeClass('popup-open');
+		$body.find('.close-popup').css('display','none');
 	}
 
 	function _showLoading($el){

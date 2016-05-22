@@ -316,43 +316,6 @@ html.home body.popup-open {
       display: block;
       margin: 0 0 10px 0;
       max-width: 100%; }
-  #popup .close {
-    display: none;
-    width: 50px;
-    height: 50px;
-    position: fixed;
-    float: none;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    -webkit-animation: poppin 0.5s;
-    animation: poppin 0.5s;
-    -webkit-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-    #popup .close:before {
-      display: block;
-      width: 2px;
-      height: 50px;
-      position: absolute;
-      content: "";
-      top: 0;
-      left: 50%;
-      background: #E7563E;
-      -webkit-transform: rotateZ(45deg);
-      transform: rotateZ(45deg); }
-    #popup .close:after {
-      display: block;
-      width: 2px;
-      height: 50px;
-      position: absolute;
-      content: "";
-      top: 0;
-      left: 50%;
-      background: #E7563E;
-      -webkit-transform: rotateZ(-45deg);
-      transform: rotateZ(-45deg); }
-    #popup .close:hover:before, #popup .close:hover:after {
-      background: #983b27; }
   #popup h2 {
     margin: 0 0 20px 0;
     font-size: 40px;
@@ -374,3 +337,47 @@ html.home body.popup-open {
       #popup > div {
         float: none;
         width: auto !important; } }
+
+.close-popup {
+  display: none;
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  float: none;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  -webkit-animation: poppin 0.5s;
+  animation: poppin 0.5s;
+  -webkit-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  /* Ch <36, Saf 5.1+, iOS, An =<4.4.4 */
+  transform: translate3d(0, 0, 0);
+  /* IE 10, Fx 16+, Op 12.1+ */
+  z-index: 200; }
+  .close-popup:before {
+    display: block;
+    width: 2px;
+    height: 50px;
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 50%;
+    background: #E7563E;
+    -webkit-transform: rotateZ(45deg);
+    transform: rotateZ(45deg); }
+  .close-popup:after {
+    display: block;
+    width: 2px;
+    height: 50px;
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 50%;
+    background: #E7563E;
+    -webkit-transform: rotateZ(-45deg);
+    transform: rotateZ(-45deg); }
+  .close-popup:hover:before, .close-popup:hover:after {
+    background: #983b27; }
