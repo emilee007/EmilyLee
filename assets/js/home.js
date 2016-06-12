@@ -11,14 +11,24 @@
 	}
 
 	function _bindEvents() {
+
+		//grid item
 		$grid.on('click', '[rel]', function (e) {
 			_loadPopup($(this));
 		});
+
+		//close button
 		$body.on('click', '.close-popup', _hidePopup);
+
+		//about link
+		$body.on('click', '.about', function(e){
+			e.preventDefault();
+			_loadAbout();
+			return false;
+		});
 	}
 
 	function _loadPopup($el) {
-
 		_showLoading($el);
 		$.ajax({
 			url: 'content/' + $el.attr('rel') + '/content.html',
@@ -30,8 +40,20 @@
 		});
 	}
 
-	function _showPopup(content){
-		$popup.html(content);
+	function _loadAbout(){
+		_showLoading($body);
+		$.ajax({
+			url: 'content/about.html',
+			success: function(resp){
+				_showPopup(resp);
+			}
+		}).always(function(){
+			_hideLoading();
+		});
+	}
+
+	function _showPopup(content, classes){
+		$popup.html(content).addClass(classes);
 		setTimeout(function(){
 			$popup.scrollTop(0);
 			setTimeout(function(){

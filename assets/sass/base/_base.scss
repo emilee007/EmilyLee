@@ -13,10 +13,10 @@ body,a,div{
 }
 
 a{
-  color: darken($blue, 10%);
+  color: darken($color-base, 10%);
   text-decoration: none;
   &:hover{
-    color: darken($blue, 20%);
+    color: darken($color-base, 20%);
     text-decoration: underline;
   }
 }

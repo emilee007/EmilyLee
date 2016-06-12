@@ -104,11 +104,17 @@ html.home{
     #popup{
       display: block;
     }
-    .grid{
-      -webkit-filter: blur(20px);
-    }
-    header{
-      -webkit-filter: blur(20px);
+    @include media(800){
+      .grid{
+        -webkit-filter: blur(25px);
+        ms-filter: blur(25px);
+        filter: blur(25px);
+      }
+      header{
+        -webkit-filter: blur(25px);
+        ms-filter: blur(25px);
+        filter: blur(25px);
+      }
     }
   }
 }

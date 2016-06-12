@@ -1,0 +1,15 @@
+#popup{
+  #about{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    float: none;
+    background: white;
+    h1{
+      margin: 0 0 25px 0;
+      font-size: 58px;
+      font-weight: 300;
+      color: $color-base;
+    }
+  }
+}

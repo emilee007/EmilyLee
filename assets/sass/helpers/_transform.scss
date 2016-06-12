@@ -1,6 +1,6 @@
-@mixin transform($arg){
-  -webkit-transform: #{$arg}; /* Ch <36, Saf 5.1+, iOS, An =<4.4.4 */
-  transform: #{$arg}; /* IE 10, Fx 16+, Op 12.1+ */
+@mixin transform($arg...){
+  -webkit-transform: $arg; /* Ch <36, Saf 5.1+, iOS, An =<4.4.4 */
+  transform: $arg; /* IE 10, Fx 16+, Op 12.1+ */
 }
 
 @mixin transitionTransform($arg){
