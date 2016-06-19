@@ -49,10 +49,13 @@
       width: 66%;
       padding: 0;
       position: relative;
-      img{
+      > *{
         display: block;
         margin: 0 0 10px 0;
         width: 100%;
+      }
+      iframe{
+        height: 350px;
       }
       @include media(0,1050){
         width: auto;

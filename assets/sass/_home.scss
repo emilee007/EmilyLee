@@ -10,7 +10,6 @@ html.home{
   }
 
   .grid{
-    background: url('../img/striped-bg.gif') center center repeat;
     @include clearfix;
     > div{
       //the box
@@ -27,12 +26,12 @@ html.home{
         position: absolute;
         left: 0;
         bottom: 0;
-        font-size: 23px;
+        font-size: 24px;
         color: black;
         font-weight: 300;
         margin: 0;
         line-height: 1.2;
-        padding: 20px;
+        padding: 25px 20px;
         text-align: center;
         background: rgba(255,255,255,0.9);
         width: 100%;

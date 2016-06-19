@@ -169,90 +169,88 @@ html.home header {
   html.home header a {
     display: inline-block;
     margin: 0 20px 0 0; }
-html.home .grid {
-  background: url("../img/striped-bg.gif") center center repeat; }
-  html.home .grid:after {
+html.home .grid:after {
+  content: '';
+  display: table;
+  clear: both; }
+html.home .grid > div {
+  float: left;
+  width: 33.3333333%;
+  height: 0;
+  padding: 27% 0 0 0;
+  background-size: cover;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden; }
+  html.home .grid > div p {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    font-size: 24px;
+    color: black;
+    font-weight: 300;
+    margin: 0;
+    line-height: 1.2;
+    padding: 25px 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    box-sizing: border-box;
+    transition: -webkit-transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -webkit-transform: translate(0, 100%);
+    /* Ch <36, Saf 5.1+, iOS, An =<4.4.4 */
+    transform: translate(0, 100%);
+    /* IE 10, Fx 16+, Op 12.1+ */ }
+  html.home .grid > div:hover p {
+    -webkit-transform: translate(0, 0);
+    /* Ch <36, Saf 5.1+, iOS, An =<4.4.4 */
+    transform: translate(0, 0);
+    /* IE 10, Fx 16+, Op 12.1+ */ }
+  html.home .grid > div:hover:before {
     content: '';
-    display: table;
-    clear: both; }
-  html.home .grid > div {
-    float: left;
-    width: 33.3333333%;
-    height: 0;
-    padding: 27% 0 0 0;
-    background-size: cover;
-    position: relative;
-    cursor: pointer;
-    overflow: hidden; }
-    html.home .grid > div p {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      font-size: 23px;
-      color: black;
-      font-weight: 300;
-      margin: 0;
-      line-height: 1.2;
-      padding: 20px;
-      text-align: center;
-      background: rgba(255, 255, 255, 0.9);
-      width: 100%;
-      box-sizing: border-box;
-      transition: -webkit-transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      -webkit-transform: translate(0, 100%);
-      /* Ch <36, Saf 5.1+, iOS, An =<4.4.4 */
-      transform: translate(0, 100%);
-      /* IE 10, Fx 16+, Op 12.1+ */ }
-    html.home .grid > div:hover p {
-      -webkit-transform: translate(0, 0);
-      /* Ch <36, Saf 5.1+, iOS, An =<4.4.4 */
-      transform: translate(0, 0);
-      /* IE 10, Fx 16+, Op 12.1+ */ }
-    html.home .grid > div:hover:before {
-      content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    -webkit-animation: fadeIn 0.3s;
+    animation: fadeIn 0.3s;
+    -webkit-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  html.home .grid > div .spinner {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    -webkit-animation: fadeIn 0.5s;
+    animation: fadeIn 0.5s;
+    -webkit-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards; }
+    html.home .grid > div .spinner i {
       display: block;
+      height: 100px;
+      width: 100px;
       position: absolute;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.4);
-      -webkit-animation: fadeIn 0.3s;
-      animation: fadeIn 0.3s;
-      -webkit-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-    html.home .grid > div .spinner {
-      position: absolute;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 10;
-      -webkit-animation: fadeIn 0.5s;
-      animation: fadeIn 0.5s;
-      -webkit-timing-function: ease-in-out;
-      animation-timing-function: ease-in-out;
-      -webkit-animation-fill-mode: forwards;
-      animation-fill-mode: forwards; }
-      html.home .grid > div .spinner i {
-        display: block;
-        height: 100px;
-        width: 100px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        margin: -50px 0 0 -50px;
-        background: url("../img/spinner.png");
-        background-size: contain;
-        -webkit-animation: rotation 1.5s linear infinite;
-        animation: rotation 1.5s linear infinite; }
-    html.home .grid > div.loading .spinner {
-      display: block; }
-    @media only screen and (min-width: 701px) and (max-width: 1150px) and (min-height: 0px) and (max-height: 999999px) {
-      html.home .grid > div {
-        width: 50%;
-        padding: 40% 0 0 0; } }
-    @media only screen and (min-width: 0px) and (max-width: 700px) and (min-height: 0px) and (max-height: 999999px) {
-      html.home .grid > div {
-        width: 100%;
-        padding: 75% 0 0 0; } }
+      left: 50%;
+      top: 50%;
+      margin: -50px 0 0 -50px;
+      background: url("../img/spinner.png");
+      background-size: contain;
+      -webkit-animation: rotation 1.5s linear infinite;
+      animation: rotation 1.5s linear infinite; }
+  html.home .grid > div.loading .spinner {
+    display: block; }
+  @media only screen and (min-width: 701px) and (max-width: 1150px) and (min-height: 0px) and (max-height: 999999px) {
+    html.home .grid > div {
+      width: 50%;
+      padding: 40% 0 0 0; } }
+  @media only screen and (min-width: 0px) and (max-width: 700px) and (min-height: 0px) and (max-height: 999999px) {
+    html.home .grid > div {
+      width: 100%;
+      padding: 75% 0 0 0; } }
 html.home body.popup-open {
   overflow: hidden; }
   html.home body.popup-open #popup {
@@ -320,10 +318,12 @@ html.home body.popup-open {
       width: 66%;
       padding: 0;
       position: relative; }
-      #popup .belt .images img {
+      #popup .belt .images > * {
         display: block;
         margin: 0 0 10px 0;
         width: 100%; }
+      #popup .belt .images iframe {
+        height: 350px; }
       @media only screen and (min-width: 0px) and (max-width: 1050px) and (min-height: 0px) and (max-height: 999999px) {
         #popup .belt .images {
           width: auto;
