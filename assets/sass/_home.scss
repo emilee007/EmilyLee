@@ -10,14 +10,14 @@ html.home{
   }
 
   .grid{
-    background: url('../img/striped-bg.gif') repeat;
+    background: url('../img/striped-bg.gif') center center repeat;
     @include clearfix;
     > div{
       //the box
       float: left;
-      width: 25%;
+      width: 33.3333333%;
       height: 0;
-      padding: 22% 0 0 0;
+      padding: 27% 0 0 0;
       background-size: cover;
       position: relative;
       cursor: pointer;
@@ -83,19 +83,14 @@ html.home{
         }
       }
 
-      @include media(901,1350){
-        width: 33.333%;
-        padding: 25% 0 0 0;
-      }
-
-      @include media(601,900){
+      @include media(701,1150){
         width: 50%;
         padding: 40% 0 0 0;
       }
 
-      @include media(0,600){
+      @include media(0,700){
         width: 100%;
-        padding: 70% 0 0 0;
+        padding: 75% 0 0 0;
       }
     }
   }

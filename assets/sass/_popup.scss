@@ -127,9 +127,11 @@
   @include media(0,900){
     background: white;
     border-radius: 5px;
-    height: 50px;
+    height: 46px;
     text-indent: -1000px;
     overflow: hidden;
+    padding: 0;
+    line-height: 50px;
   }
 
   &:before{
