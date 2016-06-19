@@ -53,7 +53,8 @@
 	}
 
 	function _showPopup(content, classes){
-		$popup.html(content).addClass(classes);
+		$popup.find('.belt').html(content);
+		$popup.addClass(classes);
 		setTimeout(function(){
 			$popup.scrollTop(0);
 			setTimeout(function(){
@@ -67,7 +68,7 @@
 
 	function _hidePopup(){
 		$popup.scrollTop(0);
-		$popup.html('');
+		$popup.find('.belt').html('');
 		$body.removeClass('popup-open');
 		$body.find('.close-popup').css('display','none');
 	}

@@ -18,28 +18,51 @@
   @include animation(slideUp 0.5s);
   @include animation-easing(cubic-bezier(0.25, 0.46, 0.45, 0.94));
 
-  > div{
-    float: left;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-
-  .text{
-    width: 39%;
-    padding: 20px 2%;
-    box-sizing: border-box;
-    background: white;
-    margin: 0 1% 0 4%;
-  }
-
-  .images{
-    width: calc(55% - 64px);
-    padding: 0;
+  .belt{
     position: relative;
-    img{
-      display: block;
-      margin: 0 0 10px 0;
+    max-width: 1213px;
+    margin: 0 auto;
+    width: calc(100% - 150px);
+    @include clearfix;
+
+    .text{
+      float: left;
+      width: 33%;
+      padding: 20px 2%;
+      box-sizing: border-box;
+      background: white;
+
+      @include media(0,1050){
+        width: auto;
+        float: none;
+        padding: 0 0 30px 0;
+        background: none;
+      }
+
+      @include media(0,850){
+        padding: 0 15px 30px 15px;
+      }
+    }
+
+    .images{
+      float: right;
+      width: 66%;
+      padding: 0;
+      position: relative;
+      img{
+        display: block;
+        margin: 0 0 10px 0;
+        width: 100%;
+      }
+      @include media(0,1050){
+        width: auto;
+        float: none;
+      }
+    }
+
+    @include media(0,1050){
       width: 100%;
+      max-width: 800px;
     }
   }
 
@@ -48,6 +71,7 @@
     font-size: 40px;
     color: #444;
     font-weight: 300;
+    line-height: 1;
   }
 
   h3{
@@ -71,13 +95,9 @@
     line-height: 1.5;
   }
 
-  @include media(0,800){
-    padding: 60px 0 0 0;
+  @include media(0,1050){
     background: white;
-    > div{
-      float: none;
-      width: auto !important;
-    }
+    padding-top: 50px;
   }
 
 }
@@ -104,7 +124,7 @@
   backface-visibility: hidden;
   @include translate3d(0,0,0);
 
-  @include media(0,800){
+  @include media(0,900){
     background: white;
     border-radius: 5px;
     height: 50px;

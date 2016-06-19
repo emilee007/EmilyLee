@@ -21,39 +21,40 @@ html.home{
       background-size: cover;
       position: relative;
       cursor: pointer;
-      > div{
+      overflow: hidden;
+      p{
         //the content
-        display: none;
         position: absolute;
         left: 0;
-        top: 0;
-        height: 100%;
+        bottom: 0;
+        font-size: 23px;
+        color: black;
+        font-weight: 300;
+        margin: 0;
+        line-height: 1.2;
+        padding: 20px;
+        text-align: center;
+        background: rgba(255,255,255,0.9);
         width: 100%;
-        background: rgba(0, 0, 0, 0.6);
-        color: white;
-        padding: 10px;
         box-sizing: border-box;
-        @include fadeIn(0.2s);
-        h3, p{
-          @include animation(slideUp 0.2s);
-          @include animation-easing(cubic-bezier(0.25, 0.46, 0.45, 0.94));
-        }
-        h3{
-          font-size: 49px;
-          margin: 0;
-          font-weight: bold;
-          text-shadow: rgba(0, 0, 0, 0.3) 2px 2px 0;
-          line-height: 1em;
-        }
-        p{
-          font-size: 14px;
-          font-style: italic;
-          color: #eee;
-        }
+        @include transitionTransform(0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94));
+        @include translate(0,100%);
       }
       &:hover{
-        > div{
+        p {
+          @include translate(0,0);
+        }
+        &:before{
+          content: '';
           display: block;
+          position: absolute;
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0,0,0,0.4);
+          @include animation(fadeIn 0.3s);
+          @include animation-easing(cubic-bezier(0.25, 0.46, 0.45, 0.94));
         }
       }
 
