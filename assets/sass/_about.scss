@@ -9,7 +9,7 @@
       margin: 0 0 25px 0;
       font-size: 58px;
       font-weight: 300;
-      color: $color-base;
+      color: darken($color-base, 10%);
     }
   }
 }

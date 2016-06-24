@@ -137,14 +137,14 @@ html, body {
   /* Prevent font scaling in landscape */ }
 
 body, a, div {
-  font-family: "Source Sans Pro", Helvetica Neue, sans-serif;
+  font-family: "Lora", Georgia, sans-serif;
   -webkit-font-smoothing: antialiased; }
 
 a {
-  color: #0e8581;
+  color: #00bc9d;
   text-decoration: none; }
   a:hover {
-    color: #095754;
+    color: #008972;
     text-decoration: underline; }
 
 .hidden {
@@ -161,14 +161,45 @@ a {
   clear: both; }
 
 h1, h2, h3, h4, h5 {
-  font-family: "Source Sans Pro", Helvetica Neue, sans-serif; }
+  font-family: "Raleway", Helvetica Neue, sans-serif; }
 
 html.home header {
   padding: 30px;
   font-size: 20px; }
-  html.home header a {
+  html.home header a.item {
+    font-family: "Raleway", Helvetica Neue, sans-serif;
+    color: black;
+    font-size: 25px;
+    margin: 8px 15px;
+    line-height: 35px;
     display: inline-block;
-    margin: 0 20px 0 0; }
+    vertical-align: top;
+    position: relative;
+    z-index: 0; }
+    html.home header a.item:before {
+      content: '';
+      background: #00efc7;
+      left: -7px;
+      right: 100px;
+      top: 0;
+      bottom: 0;
+      position: absolute;
+      z-index: -1;
+      transform: skew(-5deg);
+      transition: all 0.2s ease-in-out; }
+    html.home header a.item:hover {
+      text-decoration: none; }
+      html.home header a.item:hover:before {
+        right: -7px; }
+  html.home header a.logo {
+    display: inline-block;
+    margin: 0 23px 0 0;
+    width: 169px;
+    height: 57px;
+    background: url("../img/logo.png") no-repeat top;
+    background-size: 169px; }
+    html.home header a.logo:hover {
+      background-position: bottom; }
 html.home .grid:after {
   content: '';
   display: table;
@@ -179,46 +210,42 @@ html.home .grid > div {
   height: 0;
   padding: 27% 0 0 0;
   background-size: cover;
+  background-position: center center;
   position: relative;
   cursor: pointer;
   overflow: hidden; }
+  html.home .grid > div:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 239, 199, 0.9);
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out; }
   html.home .grid > div p {
     position: absolute;
     left: 0;
-    bottom: 0;
+    top: 50%;
+    right: 0;
     font-size: 24px;
     color: black;
-    font-weight: 300;
+    font-weight: 500;
+    font-family: "Raleway", Helvetica Neue, sans-serif;
     margin: 0;
     line-height: 1.2;
     padding: 25px 20px;
     text-align: center;
-    background: rgba(255, 255, 255, 0.9);
-    width: 100%;
     box-sizing: border-box;
-    transition: -webkit-transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    -webkit-transform: translate(0, 100%);
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    -webkit-transform: translate(0, -50%);
     /* Ch <36, Saf 5.1+, iOS, An =<4.4.4 */
-    transform: translate(0, 100%);
+    transform: translate(0, -50%);
     /* IE 10, Fx 16+, Op 12.1+ */ }
-  html.home .grid > div:hover p {
-    -webkit-transform: translate(0, 0);
-    /* Ch <36, Saf 5.1+, iOS, An =<4.4.4 */
-    transform: translate(0, 0);
-    /* IE 10, Fx 16+, Op 12.1+ */ }
-  html.home .grid > div:hover:before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.4);
-    -webkit-animation: fadeIn 0.3s;
-    animation: fadeIn 0.3s;
-    -webkit-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  html.home .grid > div:hover p, html.home .grid > div:hover:before {
+    opacity: 1; }
   html.home .grid > div .spinner {
     position: absolute;
     background: rgba(0, 0, 0, 0.4);
@@ -375,6 +402,7 @@ html.home body.popup-open {
   padding: 31px 0 0 0;
   text-transform: uppercase;
   box-sizing: border-box;
+  font-family: "Raleway", Helvetica Neue, sans-serif;
   -webkit-animation: poppin 0.5s;
   animation: poppin 0.5s;
   -webkit-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -430,6 +458,6 @@ html.home body.popup-open {
     margin: 0 0 25px 0;
     font-size: 58px;
     font-weight: 300;
-    color: #13b3ae; }
+    color: #00bc9d; }
 
 /*# sourceMappingURL=main.css.map */
