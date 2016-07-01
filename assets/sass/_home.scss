@@ -1,16 +1,78 @@
 html.home{
 
+  body{
+    min-width: 320px;
+    position: relative;
+  }
+
   header{
     padding: 30px;
     font-size: 20px;
     a.item{
       font-family: $font_header;
       color: black;
-      font-size: 25px;
+      font-size: 21px;
       margin: 8px 15px;
       line-height: 35px;
       display: inline-block;
       vertical-align: top;
+    }
+    a.logo{
+      display: inline-block;
+      margin: 0 23px 0 0;
+      width: 169px;
+      height: 57px;
+      background: url("../img/logo.png") no-repeat top;
+      background-size: 169px;
+      &:hover{
+        background-position: bottom;
+      }
+    }
+    .menu{
+      @include media(0,600){
+        width: 230px;
+        a.item{
+          margin: 10px 20px 0 0;
+        }
+        a.logo{
+          width: 146px;
+          background-size: 146px;
+          height: 49px;
+          image-rendering: -webkit-optimize-contrast;
+        }
+      }
+    }
+    .soc{
+      @include clearfix;
+      position: absolute;
+      top: 33px;
+      right: 26px;
+      a{
+        display: block;
+        float: left;
+        height: 40px;
+        width: 35px;
+        margin: 0 0 0 15px;
+        text-align: center;
+        img{
+          display: inline;
+          text-align: center;
+          vertical-align: middle;
+        }
+        &.in{
+          img{
+            margin-top: 4px;
+          }
+        }
+        &.em{
+          img{
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+
+    .hilite{
       position: relative;
       z-index: 0;
       &:before{
@@ -30,17 +92,6 @@ html.home{
         &:before{
           right: -7px;
         }
-      }
-    }
-    a.logo{
-      display: inline-block;
-      margin: 0 23px 0 0;
-      width: 169px;
-      height: 57px;
-      background: url("../img/logo.png") no-repeat top;
-      background-size: 169px;
-      &:hover{
-        background-position: bottom;
       }
     }
   }
