@@ -8,6 +8,9 @@
 		_bindEvents();
 		//load fastclick
 		FastClick.attach(document.body);
+		//copyright date
+		var d = new Date();
+		$('#copy-date').html(d.getFullYear());
 	}
 
 	function _bindEvents() {

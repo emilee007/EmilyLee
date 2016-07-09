@@ -1,3 +1,31 @@
+/* raleway-regular - latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Raleway"), local("Raleway-Regular"), url("../fonts/raleway-v11-latin-regular.woff2") format("woff2"), url("../fonts/raleway-v11-latin-regular.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ }
+/* raleway-500 - latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Raleway Medium"), local("Raleway-Medium"), url("../fonts/raleway-v11-latin-500.woff2") format("woff2"), url("../fonts/raleway-v11-latin-500.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ }
+/* lora-regular - latin */
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Lora"), local("Lora-Regular"), url("../fonts/lora-v9-latin-regular.woff2") format("woff2"), url("../fonts/lora-v9-latin-regular.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ }
+/* lora-italic - latin */
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  src: local("Lora Italic"), local("Lora-Italic"), url("../fonts/lora-v9-latin-italic.woff2") format("woff2"), url("../fonts/lora-v9-latin-italic.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ }
 /* This only supports IE10+, and recent versions of evergreen browsers (Chrome, Safari, Firefox) */
 .ellipsify {
   white-space: nowrap;
@@ -328,6 +356,12 @@ html.home body.popup-open {
       -webkit-filter: blur(25px);
       ms-filter: blur(25px);
       filter: blur(25px); } }
+html.home footer {
+  color: #999;
+  font-family: Lora, Georgia, sans-serif;
+  font-size: 14px;
+  padding: 10px 0 10px 20px;
+  text-align: center; }
 
 #popup {
   display: none;
@@ -492,9 +526,21 @@ html.home body.popup-open {
   float: none;
   background: white; }
   #popup #about h1 {
-    margin: 0 0 25px 0;
+    margin: 28px 0 25px 0;
     font-size: 58px;
     font-weight: 300;
+    line-height: 1;
     color: #00bc9d; }
+    #popup #about h1:after {
+      content: '';
+      display: table;
+      clear: both; }
+    #popup #about h1 img {
+      margin: -20px 30px 0 0;
+      height: 163px;
+      width: 163px;
+      border-radius: 175px;
+      display: block;
+      float: left; }
 
 /*# sourceMappingURL=main.css.map */

@@ -200,6 +200,14 @@ html.home{
       }
     }
   }
+
+  footer{
+    color: #999;
+    font-family: Lora, Georgia, sans-serif;
+    font-size: 14px;
+    padding: 10px 0 10px 20px;
+    text-align: center;
+  }
 }
 
 @import "popup";
