@@ -475,7 +475,7 @@ html.home footer {
   cursor: pointer;
   z-index: 200;
   line-height: 50px;
-  color: #c34887;
+  color: #d300ff;
   font-size: 15px;
   text-align: center;
   padding: 31px 0 0 0;
@@ -500,7 +500,7 @@ html.home footer {
       overflow: hidden;
       padding: 0;
       line-height: 50px; } }
-  .close-popup:before {
+  .close-popup:before, .close-popup:after {
     display: block;
     width: 2px;
     height: 45px;
@@ -508,24 +508,17 @@ html.home footer {
     content: "";
     top: 0;
     left: 50%;
-    background: #c34887;
+    background: #d300ff; }
+  .close-popup:before {
     -webkit-transform: rotateZ(45deg);
     transform: rotateZ(45deg); }
   .close-popup:after {
-    display: block;
-    width: 2px;
-    height: 45px;
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 50%;
-    background: #c34887;
     -webkit-transform: rotateZ(-45deg);
     transform: rotateZ(-45deg); }
   .close-popup:hover {
-    color: #7c2954; }
+    color: #0A78EC; }
     .close-popup:hover:before, .close-popup:hover:after {
-      background: #7c2954; }
+      background: #0A78EC; }
 
 #popup #about {
   max-width: 800px;

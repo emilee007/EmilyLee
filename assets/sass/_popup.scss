@@ -125,7 +125,7 @@
   cursor: pointer;
   z-index: 200;
   line-height: 50px;
-  color: #c34887;
+  color: #d300ff;
   font-size: 15px;
   text-align: center;
   padding: 31px 0 0 0;
@@ -147,7 +147,7 @@
     line-height: 50px;
   }
 
-  &:before{
+  &:before, &:after{
     display: block;
     width: 2px;
     height: 45px;
@@ -155,26 +155,23 @@
     content: "";
     top: 0;
     left: 50%;
-    background: #c34887;
+    background: #d300ff;
+  }
+
+  &:before{
     -webkit-transform: rotateZ(45deg);
     transform: rotateZ(45deg);
   }
+
   &:after{
-    display: block;
-    width: 2px;
-    height: 45px;
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 50%;
-    background: #c34887;
     -webkit-transform: rotateZ(-45deg);
     transform: rotateZ(-45deg);
   }
+
   &:hover{
-    color: darken(#c34887, 20%);
+    color: $color-secondary;
     &:before, &:after{
-      background: darken(#c34887, 20%);
+      background: $color-secondary;
     }
   }
 }
