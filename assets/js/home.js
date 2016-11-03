@@ -4,20 +4,35 @@
 		$grid = $body.find('.grid'),
 		$popup = $body.find('#popup');
 
+	var routes = {
+		project: 'project/:id',
+		about: 'about'
+	};
+
 	function _init() {
 		_bindEvents();
+
 		//load fastclick
 		FastClick.attach(document.body);
+
 		//copyright date
 		var d = new Date();
-		$('#copy-date').html(d.getFullYear());
+		$body.find('#copy-date').html(d.getFullYear());
+		window.controller = controller;
+
+		//setup routes
+		router.setControllers(controller);
+		router.setRoutes(routes);
+
+		//route!
+		router.route();
 	}
 
 	function _bindEvents() {
 
 		//grid item
 		$grid.on('click', '[rel]', function (e) {
-			_loadPopup($(this));
+			router.go2('project', {id: $(this).attr('rel')});
 		});
 
 		//close button
@@ -26,32 +41,36 @@
 		//about link
 		$body.on('click', '.about', function(e){
 			e.preventDefault();
-			_loadAbout();
+			router.go2('about');
 			return false;
 		});
 	}
 
-	function _loadPopup($el) {
-		_showLoading($el);
+	/**
+	 * @param {string} id
+	 * @private
+	 */
+	function _loadPopup(id) {
+		_showSpinner();
 		$.ajax({
-			url: 'content/' + $el.attr('rel') + '/content.html',
+			url: 'content/' + id + '/content.html',
 			success: function(resp){
 				_showPopup(resp);
 			}
 		}).always(function(){
-			_hideLoading();
+			_hideSpinner();
 		});
 	}
 
 	function _loadAbout(){
-		_showLoading($body);
+		_showSpinner($body);
 		$.ajax({
 			url: 'content/about.html',
 			success: function(resp){
 				_showPopup(resp);
 			}
 		}).always(function(){
-			_hideLoading();
+			_hideSpinner();
 		});
 	}
 
@@ -76,16 +95,23 @@
 		$body.find('.close-popup').css('display','none');
 	}
 
-	function _showLoading($el){
-		_hideLoading();
-		$el.prepend('<div class="spinner"><i></i></div>');
-		$el.addClass('loading');
+	function _showSpinner(){
+		_hideSpinner();
+		$body.prepend('<div class="spinner"><i></i></div>');
 	}
 
-	function _hideLoading(){
-		$grid.find('.spinner').remove();
-		$grid.find('[rel]').removeClass('loading');
+	function _hideSpinner(){
+		$body.find('.spinner').remove();
 	}
+
+	var controller = {
+		project: function(data){
+			_loadPopup(data.id);
+		},
+		about: function(data){
+			_loadAbout();
+		}
+	};
 
 	_init();
 

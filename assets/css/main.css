@@ -191,6 +191,33 @@ a {
 h1, h2, h3, h4, h5 {
   font-family: "Raleway", Helvetica Neue, sans-serif; }
 
+.spinner {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  -webkit-animation: fadeIn 0.5s;
+  animation: fadeIn 0.5s;
+  -webkit-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0; }
+  .spinner i {
+    display: block;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -50px 0 0 -50px;
+    background: url("../img/spinner.png");
+    background-size: contain;
+    -webkit-animation: rotation 1.5s linear infinite;
+    animation: rotation 1.5s linear infinite; }
+
 html.home body {
   min-width: 320px;
   position: relative; }
@@ -311,30 +338,6 @@ html.home .grid > div {
     /* IE 10, Fx 16+, Op 12.1+ */ }
   html.home .grid > div:hover p, html.home .grid > div:hover:before {
     opacity: 1; }
-  html.home .grid > div .spinner {
-    position: absolute;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 10;
-    -webkit-animation: fadeIn 0.5s;
-    animation: fadeIn 0.5s;
-    -webkit-timing-function: ease-in-out;
-    animation-timing-function: ease-in-out;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards; }
-    html.home .grid > div .spinner i {
-      display: block;
-      height: 100px;
-      width: 100px;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      margin: -50px 0 0 -50px;
-      background: url("../img/spinner.png");
-      background-size: contain;
-      -webkit-animation: rotation 1.5s linear infinite;
-      animation: rotation 1.5s linear infinite; }
-  html.home .grid > div.loading .spinner {
-    display: block; }
   @media only screen and (min-width: 701px) and (max-width: 1150px) and (min-height: 0px) and (max-height: 999999px) {
     html.home .grid > div {
       width: 50%;

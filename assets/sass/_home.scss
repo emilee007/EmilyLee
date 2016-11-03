@@ -145,31 +145,6 @@ html.home{
         }
       }
 
-      .spinner{
-        position: absolute;
-        background: rgba(0, 0, 0, 0.4);
-        z-index: 10;
-        @include fadeIn(0.5s);
-        i{
-          display: block;
-          height: 100px;
-          width: 100px;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          margin: -50px 0 0 -50px;
-          background: url('../img/spinner.png');
-          background-size: contain;
-          @include rotation;
-        }
-      }
-
-      &.loading{
-        .spinner{
-          display: block;
-        }
-      }
-
       @include media(701,1150){
         width: 50%;
         padding: 40% 0 0 0;
