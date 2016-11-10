@@ -93,6 +93,7 @@
 		$popup.find('.belt').html('');
 		$body.removeClass('popup-open');
 		$body.find('.close-popup').css('display','none');
+		window.location.hash = '';
 	}
 
 	function _showSpinner(){
