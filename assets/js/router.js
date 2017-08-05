@@ -1,4 +1,8 @@
-window.router = (function () {
+window.router = (function(match){
+
+	if(typeof match !== 'function'){
+		throw 'routeMatcher is not loaded or defined.';
+	}
 
 	var _my = {
 		navigateAwayCallback: null,
@@ -35,7 +39,7 @@ window.router = (function () {
 		if (!hash) {
 			throw("Undefined route '" + id + "'");
 		}
-		var rm = routeMatcher(hash);
+		var rm = match(hash);
 		return rm.stringify(params || {});
 	}
 
@@ -53,7 +57,7 @@ window.router = (function () {
 
 		for (var k in _my.routes) {
 			if (_my.routes.hasOwnProperty(k)) {
-				var rm = routeMatcher(_my.routes[k]);
+				var rm = match(_my.routes[k]);
 				var p = rm.parse(hash);
 				if (p !== null) {
 					return {id:k, params:p};
@@ -169,4 +173,4 @@ window.router = (function () {
 		setRoutes: function(routes){ _my.routes = routes; },
 		setControllers: function(controllers){ _my.controllers = controllers; }
 	};
-})();
+})(routeMatcher);

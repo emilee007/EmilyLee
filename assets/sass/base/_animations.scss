@@ -1,11 +1,25 @@
-@include keyframes(poppin){
+@include keyframes(grow){
   0% {
-    @include scale(0.7, 0.7);
+    opacity: 0.7;
+    @include scale(0.15,0.15);
   }
-  100% {
-    @include scale(1, 1);
+  100%{
+    opacity: 1;
+    @include scale(1,1);
   }
 }
+
+@include keyframes(growALittle){
+  0% {
+    opacity: 0.1;
+    @include scale(0.95,0.95);
+  }
+  100%{
+    opacity: 1;
+    @include scale(1,1);
+  }
+}
+
 
 @include keyframes(fadeIn){
   0% {
@@ -16,12 +30,14 @@
   }
 }
 
-@include keyframes(fadeOut){
+@include keyframes(growIn){
   0% {
-    opacity:1;
+    opacity:0;
+    @include scale(0.98,0.98);
   }
   100% {
-    opacity:0;
+    opacity:1;
+    @include scale(1,1);
   }
 }
 
@@ -31,40 +47,26 @@
   }
 }
 
-@include keyframes(dropIn){
-  0% {
-    @include translateY(-20px);
-    opacity:0;
+@include keyframes(barberpole){
+  0%{
+    @include translate(0, 0);
   }
-  30% {
-    @include translateY(-20px);
-    opacity:0;
-  }
-  100% {
-    @include translateY(0);
-    opacity:1;
+  100%{
+    @include translate(-32px, 0);
   }
 }
 
-@include keyframes(slideUp){
-  0% {
-    @include translate(0, 15px);
-    opacity: 0;
+@include keyframes(showProgressBar){
+  0%{
+    @include translate(0, -10px);
   }
-  100% {
-    @include translate(0,0);
-    opacity: 1;
+  100%{
+    @include translate(0, 0);
   }
 }
 
 @mixin fadeIn($duration){
   @include animation(fadeIn $duration);
-  @include animation-easing(ease-in-out);
-  @include animation-fill-mode(forwards);
-}
-
-@mixin fadeOut($duration){
-  @include animation(fadeOut $duration);
   @include animation-easing(ease-in-out);
   @include animation-fill-mode(forwards);
 }

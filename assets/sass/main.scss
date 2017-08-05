@@ -3,13 +3,13 @@
 @import "defines";
 @import "helpers/include";
 
-// base styles
+// base styles & shared components
 
 @import "base/animations";
 @import "base/base";
-@import "spinner";
+@import "progressbar";
+@import "popup";
 
 // pages
 
-@import "home";
-@import "about";
+@import "home/home";

@@ -1,177 +1,82 @@
 #popup{
   display: none;
   position: fixed;
-  height: 100%;
-  width: 100%;
-  padding: 100px 0 40px 0;
+  padding: 0;
   top: 0;
-  left: 0;
-  right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.8);
+  background: #eee;
   z-index: 100;
   overflow: auto;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   -webkit-overflow-scrolling: touch;
   box-sizing: border-box;
-  @include translate3d(0,0,0);
-  @include animation(slideUp 0.5s);
-  @include animation-easing(cubic-bezier(0.25, 0.46, 0.45, 0.94));
+  left: 0;
+  right: 0;
+  width: 100%;
 
-  .belt{
-    position: relative;
-    max-width: 1213px;
+  &.loaded{
+    @include animation(growALittle 0.3s);
+    @include animation-easing(cubic-bezier(0.25, 0.46, 0.45, 0.90));
+    .content{
+      display: block;
+    }
+  }
+
+  .content{
+    display: none;
+    max-width: 1050px;
     margin: 0 auto;
-    width: calc(100% - 150px);
-    @include clearfix;
-
-    .text{
-      float: left;
-      width: 33%;
-      padding: 20px 2%;
-      box-sizing: border-box;
-      background: white;
-
-      @include media(0,1050){
-        width: auto;
-        float: none;
-        padding: 0 0 30px 0;
-        background: none;
-      }
-
-      @include media(0,850){
-        padding: 0 15px 30px 15px;
-      }
-    }
-
-    .images{
-      float: right;
-      width: 66%;
-      padding: 0;
-      position: relative;
-      > *{
-        display: block;
-        margin: 0 0 10px 0;
-        width: 100%;
-      }
-      iframe{
-        height: 350px;
-      }
-      > comment{
-        margin: -10px 0 15px 0;
-        background: #528078;
-        padding: 15px;
-        box-sizing: border-box;
-        border-top: 1px solid white;
-        color: white;
-        font-size: 18px;
-      }
-      @include media(0,1050){
-        width: auto;
-        float: none;
-      }
-    }
-
-    @include media(0,1050){
-      width: 100%;
-      max-width: 800px;
-    }
-  }
-
-  h2{
-    margin: 0 0 20px 0;
-    font-size: 40px;
-    color: #444;
-    font-weight: 300;
-    line-height: 1;
-  }
-
-  h3{
-    margin: 0 0 20px 0;
-    font-size: 15px;
-    color: #222;
-    font-weight: 300;
-  }
-
-  h4{
-    font-size: 20px;
-    font-weight: 400;
-    color: black;
-    margin: 0 0 20px 0;
-  }
-
-  p{
-    margin: 0 0 20px 0;
-    font-size: 20px;
-    color: #444;
-    line-height: 1.5;
-  }
-
-  @include media(0,1050){
-    background: white;
-    padding-top: 50px;
   }
 
 }
 
 .close-popup {
   display: none;
-  width: 45px;
-  height: 68px;
   position: fixed;
-  float: none;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
   z-index: 200;
-  line-height: 50px;
-  color: #d300ff;
-  font-size: 15px;
-  text-align: center;
-  padding: 31px 0 0 0;
-  text-transform: uppercase;
-  box-sizing: border-box;
-  font-family: $font_header;
-  @include animation(poppin 0.5s);
-  @include animation-easing(cubic-bezier(0.25, 0.46, 0.45, 0.94));
   backface-visibility: hidden;
-  @include translate3d(0,0,0);
+  max-width: 1050px;
+  margin: 0 auto;
+  height: 60px;
+  left: 0;
+  right: 0;
+  top: 0;
+  @include translate3d(0, 0, 0);
 
-  @include media(0,900){
-    background: white;
-    border-radius: 5px;
-    height: 46px;
-    text-indent: -1000px;
-    overflow: hidden;
-    padding: 0;
-    line-height: 50px;
-  }
-
-  &:before, &:after{
-    display: block;
-    width: 2px;
-    height: 45px;
+  i{
     position: absolute;
-    content: "";
+    display: block;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    padding: 0;
+    box-sizing: border-box;
+    background: #da465e;
+    transition: background 0.15s ease-in-out;
+    right: 0;
     top: 0;
-    left: 50%;
-    background: #d300ff;
-  }
+    @include animation(grow 0.2s);
+    @include animation-easing(cubic-bezier(0.25, 0.46, 0.45, 0.90));
 
-  &:before{
-    -webkit-transform: rotateZ(45deg);
-    transform: rotateZ(45deg);
-  }
-
-  &:after{
-    -webkit-transform: rotateZ(-45deg);
-    transform: rotateZ(-45deg);
-  }
-
-  &:hover{
-    color: $color-secondary;
     &:before, &:after{
-      background: $color-secondary;
+      content: '';
+      display: block;
+      width: 2px;
+      height: 36px;
+      position: absolute;
+      background: white;
+      left: 30px;
+      top: 11px;
+      @include rotate(45deg);
+    }
+
+    &:after{
+      @include rotate(-45deg);
+    }
+
+    &:hover{
+      background: #9a3e4d;
     }
   }
 }

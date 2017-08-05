@@ -8,16 +8,16 @@ html,body{
 }
 
 body,a,div{
-  font-family: $font_content;
+  font-family: $font;
   -webkit-font-smoothing: antialiased;
 }
 
 a{
-  color: darken($color-base, 10%);
+  color: $color-base;
   text-decoration: none;
   &:hover{
-    color: darken($color-base, 20%);
-    text-decoration: underline;
+    color: darken($color-base, 10%);
+    text-decoration: none;
   }
 }
 
@@ -33,6 +33,7 @@ a{
   @include clearfix;
 }
 
-h1,h2,h3,h4,h5{
-  font-family: $font_header;
+h1,h2,h3,h4,h5,header{
+  font-family: $font;
+  font-weight: 300;
 }
