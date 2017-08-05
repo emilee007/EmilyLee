@@ -1,0 +1,64 @@
+&#project-marvel{
+  background: #333;
+  header{
+    background: #262626;
+    padding: 30% 0 0 0;
+    overflow: hidden;
+    img{
+      max-height: none;
+      height: 100%;
+      width: auto;
+      max-width: none;
+    }
+    @include media(0,800){
+      height: 200px;
+      padding: 0;
+      img{
+        display: none;
+      }
+      &:before{
+        content: '';
+        display: block;
+        width: 212px;
+        height: 76px;
+        position: absolute;
+        background: #f0141e url(/dist/img/logos/marvel-white.png) no-repeat center center;
+        background-size: 94%;
+        left: 50%;
+        top: 50%;
+        @include translate(-50%,-50%);
+      }
+    }
+  }
+  .img-container{
+    background: url('../img/stripebg.svg'), #444;
+    &.alt{
+      background: url('../img/stripebg.svg'), #ccc;
+    }
+  }
+  a.presentation{
+    display: inline-block;
+    background: linear-gradient(to right, #673ab7, #963040);
+    margin: -5px 0 30px 0;
+    font-size: 18px;
+    line-height: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 100px;
+    color: white;
+    padding: 0 25px;
+    transition: all 0.1s ease-in-out;
+    svg{
+      display: inline-block;
+      stroke: none;
+      height: 50px;
+      width: 43px;
+      margin: 0 5px 0 0;
+      vertical-align: top;
+    }
+    &:hover{
+      @include scale(1.05,1.05);
+      box-shadow: rgba(0,0,0,0.1) 0 2px 5px;
+    }
+  }
+}

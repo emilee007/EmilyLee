@@ -1,0 +1,24 @@
+{
+  "name": "mhweiner",
+  "devDependencies": {
+    "buildify": "*",
+    "node-sass": "*",
+    "nodemon": "*"
+  },
+  "scripts": {
+    "build-sass": "rm -rf dist/css && node-sass assets/sass -o dist/css/",
+    "build-images": "rm -rf dist/img && cp -r assets/img dist/",
+    "build-fonts": "rm -rf dist/fonts && cp -r assets/fonts dist/",
+    "build-js": "rm -rf dist/js && node build_scripts/buildjs.js",
+    "build-sass-prod": "rm -rf dist/css && node-sass assets/sass -o dist/css/ --output-style compressed",
+    "build-js-prod": "rm -rf dist/js && node build_scripts/buildjs-prod.js",
+    "build": "npm run build-sass && npm run build-images && npm run build-fonts && npm run build-js",
+    "build-prod": "npm run build-sass-prod && npm run build-images && npm run build-fonts && npm run build-js-prod",
+    "watch-js": "nodemon -e js -w assets/js -x 'npm run build-js' -C",
+    "watch-sass": "nodemon -e scss -w assets/sass -x 'npm run build-sass' -C",
+    "watch-images": "nodemon -w assets/img -x 'npm run build-images' -C",
+    "watch-fonts": "nodemon -w assets/fonts -x 'npm run build-fonts' -C",
+    "watch": "npm run watch-sass & npm run watch-images & npm run watch-fonts & npm run watch-js",
+    "bw": "npm run build && npm run watch"
+  }
+}

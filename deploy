@@ -1,0 +1,20 @@
+#! /bin/bash
+read -r -p "Are you sure? [Y/n] " response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
+then
+	echo "----------------------------------------------------"
+	echo "Building production assets...";
+	echo "----------------------------------------------------"
+	npm run build-prod
+	echo " "
+	echo " "
+	echo "----------------------------------------------------"
+    echo "Pushing files to mhweiner.com...";
+    echo "----------------------------------------------------"
+	rsync -avH --delete --exclude '.idea' --exclude '.git' --exclude 'build_scripts' --exclude 'node_modules' --exclude 'npm-debug*' --exclude 'deploy' --exclude 'assets' ./ root@ciroapp.com:/var/www/mhweiner/
+    echo "----------------------------------------------------"
+    echo "Build complete. ^_^";
+    echo "----------------------------------------------------"
+else
+	exit
+fi

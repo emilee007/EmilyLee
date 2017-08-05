@@ -1,0 +1,141 @@
+#popup .project {
+
+  header{
+    background: linear-gradient(to bottom right, #1a435b, #6c286d);
+    position: relative;
+    padding: 25% 0 0 0;
+    height: 0;
+    img{
+      max-height: 44%;
+      max-width: 50%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: auto;
+      @include transform(translate3d(-50%,-50%, 0));
+    }
+    @include media(0,800){
+      padding: 0;
+      height: 200px;
+    }
+  }
+
+  > img, .img-container > img{
+    width: 100%;
+    display: block;
+    margin: 0;
+  }
+
+  .text{
+    background: white;
+    padding: 0 0 30px 0;
+    @include clearfix;
+
+    h1{
+      font-size: 27px;
+      padding: 30px;
+      margin: 0;
+      line-height: 50px;
+      font-weight: 400;
+      color: #444444;
+      @include media(0,600){
+        line-height: 1.2em;
+      }
+    }
+
+    h3{
+      margin: 0 0 35px 0;
+      line-height: 1;
+      font-weight: 400;
+      font-size: 18px;
+      color: #313131;
+      position: relative;
+      &:after{
+        content: '';
+        width: 29px;
+        height: 1px;
+        background: #d6d2d2;
+        position: absolute;
+        bottom: -20px;
+        left: 0;
+      }
+    }
+
+    a.ext-link{
+      text-transform: uppercase;
+      font-size: 13px;
+      line-height: 45px;
+      display: inline-block;
+      vertical-align: top;
+      border: 1px solid #ddd;
+      border-radius: 50px;
+      padding: 0 20px;
+      margin: 0 0 0 15px;
+      color: #666;
+      transition: all 0.2s ease-in-out;
+      i{
+        margin: 0 0 0 5px;
+      }
+      &:hover{
+        color: $color-base;
+        border-color: $color-base;
+      }
+      @include media(0,600){
+        display: block;
+        margin: 15px 0 0 0;
+        border-radius: 0;
+      }
+    }
+
+    section{
+      margin: 0;
+      padding: 0 30px;
+      box-sizing: border-box;
+      float: left;
+      width: 50%;
+      p{
+        margin: 0 0 20px 0;
+        line-height: 1.5;
+        color: #636363;
+        font-size: 17px;
+        &:last-child{
+          margin: 0 0 30px 0;
+        }
+      }
+      @include media(0,750){
+        width: 100%;
+        float: none;
+      }
+
+      ul{
+        margin: 0 0 30px 0;
+        padding: 0;
+        li{
+          margin: 0 0 12px 0;
+          display: block;
+          padding: 0 0 0 20px;
+          color: #636363;
+          position: relative;
+          line-height: 1.4;
+          &:before{
+            content: '';
+            display: block;
+            width: 4px;
+            height: 4px;
+            background: #b5b1b1;
+            position: absolute;
+            top: 6px;
+            left: 0;
+          }
+        }
+      }
+    }
+  }
+
+  @import "popup.project.roadsign";
+  @import "popup.project.marvel";
+  @import "popup.project.advizr";
+  @import "popup.project.ciro";
+  @import "popup.project.nextemr";
+
+}

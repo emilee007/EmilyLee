@@ -1,0 +1,116 @@
+#contact{
+  .belt{
+    padding: 50px 30px;
+    position: relative;
+    box-sizing: border-box;
+    h3{
+      font-size: 22px;
+      margin: 0 0 10px 0;
+      color: #828181;
+    }
+    ul{
+      display: block;
+      margin: 0 auto;
+      padding: 0;
+      @include clearfix;
+      li{
+        display: block;
+        margin: 0 20px 0 0;
+        padding: 0;
+        float: left;
+        a{
+          display: block;
+          position: relative;
+          margin: 0;
+          padding: 0;
+          outline: none;
+          text-align: center;
+          span{
+            ffont-size: 16px;
+            color: #656565;
+            transition: color 0.15s ease-in-out;
+            display: block;
+            line-height: 26px;
+          }
+          svg{
+            display: inline-block;
+            vertical-align: top;
+            color: #c5c5c5;
+            transition: stroke 0.15s ease-in-out, fill 0.15s ease-in-out;
+          }
+          &:hover,&:active,&:focus{
+            span{
+              color: $color-base;
+            }
+          }
+          &.email{
+            svg{
+              stroke: #444444;
+              stroke-width: 16px;
+              fill: none;
+              width: 54px;
+              height: 68px;
+            }
+            &:hover{
+              svg{
+                stroke: $color-base;
+              }
+            }
+          }
+          &.linkedin{
+            svg{
+              stroke: #444444;
+              stroke-width: 20px;
+              fill: none;
+              width: 45px;
+              height: 68px;
+            }
+            &:hover{
+              svg{
+                stroke: $color-base;
+              }
+            }
+          }
+          &.github{
+            svg{
+              stroke: none;
+              fill: #444;
+              height: 68px;
+              width: 46px;
+            }
+            &:hover{
+              svg{
+                fill: $color-base;
+              }
+            }
+          }
+          &.quora{
+            svg{
+              stroke: none;
+              fill: #444;
+              height: 68px;
+              width: 37px;
+            }
+            &:hover{
+              svg{
+                fill: $color-base;
+              }
+            }
+          }
+        }
+      }
+    }
+    @include media(0,600){
+      padding: 30px 15px 50px 15px;
+      &:before{
+        display: none;
+      }
+      p{
+        width: auto;
+      }
+      h3{
+        margin: 0 0 20px 0;
+      }
+    }
+  }
+}

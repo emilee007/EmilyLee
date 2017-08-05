@@ -1,0 +1,12 @@
+{
+    "base" : {
+      "js":[
+        "assets/js/jquery-2.1.4.min.js",
+        "assets/js/imagesloaded.min.js",
+        "assets/js/fastclick.js",
+        "assets/js/routematcher.js",
+        "assets/js/router.js",
+        "assets/js/home.js"
+      ]
+    }
+}

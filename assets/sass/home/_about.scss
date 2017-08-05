@@ -1,0 +1,50 @@
+#about{
+  .belt{
+    padding: 50px 30px 0 30px;
+    position: relative;
+    box-sizing: border-box;
+    h3{
+      font-size: 22px;
+      margin: 0 0 20px 0;
+      color: #828181;
+    }
+    img{
+      width: 30%;
+      border-radius: 250px;
+      float: right;
+      margin: -30px 0 0 0;
+    }
+    p{
+      margin: 0 0 20px 0;
+      line-height: 1.5;
+      color: #666;
+      font-size: 17px;
+      width: 55%;
+      &:last-child{
+        margin: 0;
+      }
+    }
+    @include media(0,1000){
+      padding: 45px 15px 0 15px;
+      &:before{
+        display: none;
+      }
+      p{
+        width: auto;
+      }
+      img{
+        width: 50%;
+        margin: 0 0 20px 20px;
+        max-width: 300px;
+      }
+      h3{
+        margin: 0 0 20px 0;
+      }
+    }
+    @include media(0,500){
+      img{
+        float: none;
+      }
+    }
+  }
+}
