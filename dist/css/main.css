@@ -477,7 +477,6 @@ nav {
 
 body > header {
   margin: 0 auto;
-  max-width: 1100px;
   position: fixed;
   left: 0;
   right: 0;
@@ -486,25 +485,25 @@ body > header {
 
 .menu-toggle {
   display: block;
-  top: 10px;
-  right: 10px;
+  top: 0;
+  right: 0;
   cursor: pointer;
   font-size: 34px;
   z-index: 100;
   padding: 29px 54px 32px 10px;
   position: absolute;
   transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  border-radius: 50px;
-  outline: none; }
+  outline: none;
+  background: #d300ff; }
   @media only screen and (min-width: 0px) and (max-width: 600px) and (min-height: 0px) and (max-height: 999999px) {
     .menu-toggle {
       right: 10px;
       top: 10px; } }
   .menu-toggle span, .menu-toggle span:before, .menu-toggle span:after {
     cursor: pointer;
-    height: 2px;
+    height: 1px;
     width: 45px;
-    background: black;
+    background: white;
     position: absolute;
     display: block;
     content: '';
@@ -512,18 +511,16 @@ body > header {
   .menu-toggle span:before {
     top: -13px; }
   .menu-toggle span:after {
-    bottom: -13px;
-    width: 30px;
-    right: 0; }
-  .menu-toggle:hover span, .menu-toggle:hover span:before, .menu-toggle:hover span:after {
-    background-color: #673AB7; }
-  .menu-toggle:hover span:after {
-    width: 100%; }
+    bottom: -13px; }
+  .menu-toggle:hover {
+    background: white; }
+    .menu-toggle:hover span, .menu-toggle:hover span:before, .menu-toggle:hover span:after {
+      background-color: #d300ff; }
   .menu-toggle.active span {
     background-color: transparent; }
     .menu-toggle.active span:before, .menu-toggle.active span:after {
       top: 0;
-      background-color: #da465e; }
+      background-color: #d300ff; }
     .menu-toggle.active span:before {
       -webkit-transform: rotate(45deg);
       /* Ch <36, Saf 5.1+, iOS, An =<4.4.4 */
@@ -537,126 +534,81 @@ body > header {
       width: 100%;
       right: auto; }
   .menu-toggle.active:hover span:before, .menu-toggle.active:hover span:after {
-    background-color: #953040; }
+    background-color: #d300ff; }
 
 #intro {
-  height: 100vh;
+  background: url(../img/hero/stars.jpg) top center no-repeat;
   min-height: 700px;
-  max-height: 900px;
   position: relative;
-  background: #eee;
-  padding: 30px 0;
   box-sizing: border-box;
-  overflow: hidden; }
-  #intro:after {
-    content: '';
-    display: table;
-    clear: both; }
-  @media only screen and (min-width: 0px) and (max-width: 600px) and (min-height: 0px) and (max-height: 999999px) {
-    #intro {
-      padding: 15px 0 30px 0; } }
-  @media only screen and (min-width: 0px) and (max-width: 420px) and (min-height: 0px) and (max-height: 999999px) {
-    #intro {
-      height: auto;
-      min-height: 0; } }
-  #intro .belt {
-    z-index: 1; }
-  #intro h1 {
-    color: #444343;
-    font-size: 23px;
-    margin: 0;
-    font-weight: 400;
-    cursor: pointer;
-    float: left;
-    line-height: 30px; }
-    @media only screen and (min-width: 0px) and (max-width: 420px) and (min-height: 0px) and (max-height: 999999px) {
-      #intro h1 {
-        width: 200px; } }
-    @media only screen and (min-width: 0px) and (max-width: 800px) and (min-height: 0px) and (max-height: 999999px) {
-      #intro h1 {
-        float: none; } }
-    #intro h1:hover {
-      color: #673AB7; }
-      #intro h1:hover img {
-        -webkit-animation: rotation 2.5s linear infinite;
-        animation: rotation 2.5s linear infinite; }
-  #intro h2 {
-    color: #545454;
-    font-size: 41px;
+  height: 100vh;
+  background-size: cover; }
+  #intro .top-shading {
+    background: linear-gradient(to bottom, black, transparent);
     position: absolute;
-    top: 49%;
-    left: 0;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0 80px 0 30px;
-    -webkit-transform: translate(0, -50%);
+    top: 0;
+    height: 50%;
+    width: 100%; }
+  #intro .main-mountain {
+    background: url(../img/hero/main_mountain.png) bottom center no-repeat;
+    height: 256px;
+    width: 100%;
+    background-size: contain;
+    position: absolute;
+    bottom: 0; }
+  #intro .side-mountains {
+    background: url(../img/hero/side_mountains.png) bottom center no-repeat;
+    height: 115px;
+    width: 100%;
+    background-size: cover;
+    position: absolute;
+    bottom: 0; }
+  #intro .background-trees {
+    background: url(../img/hero/background_trees.png) bottom center no-repeat;
+    height: 140px;
+    width: 100%;
+    background-size: contain;
+    position: absolute;
+    bottom: 0; }
+  #intro .front-trees {
+    background: url(../img/hero/front_trees.png) bottom center no-repeat;
+    height: 243px;
+    width: 100%;
+    background-size: contain;
+    position: absolute;
+    bottom: 0; }
+  #intro img.logo {
+    position: absolute;
+    left: 20px;
+    top: 20px; }
+  #intro .text {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    -webkit-transform: translateY(-50%);
     /* Ch <36, Saf 5.1+, iOS, An =<4.4.4 */
-    transform: translate(0, -50%);
+    transform: translateY(-50%);
     /* IE 10, Fx 16+, Op 12.1+ */ }
-    #intro h2 span {
-      color: #673AB7;
-      padding: 0 15px;
-      display: inline-block;
-      line-height: 53px;
-      font-size: 38px;
-      margin: 0 5px 0 0;
-      background: #d4dbe2; }
-    @media only screen and (min-width: 0px) and (max-width: 800px) and (min-height: 0px) and (max-height: 999999px) {
-      #intro h2 {
-        font-size: 32px;
-        padding: 0 60px 0 30px; }
-        #intro h2 span {
-          padding: 0 10px;
-          line-height: 43px;
-          font-size: 30px;
-          margin: 0 3px 0 0; } }
-    @media only screen and (min-width: 0px) and (max-width: 600px) and (min-height: 0px) and (max-height: 999999px) {
-      #intro h2 {
-        padding: 0 15px; } }
-    @media only screen and (min-width: 0px) and (max-width: 420px) and (min-height: 0px) and (max-height: 999999px) {
-      #intro h2 {
-        position: relative;
-        padding: 0;
-        margin: 60px 0;
-        transform: none;
-        top: auto;
-        left: auto; } }
-  #intro a.more {
-    display: block;
-    position: absolute;
-    bottom: 5px;
-    font-size: 19px;
-    line-height: 55px;
-    padding: 0 20px;
-    color: #673AB7;
-    transition: border-color 0.15s ease-in-out, color 0.15s ease-in-out;
-    vertical-align: top;
-    border: 2px solid #673AB7; }
-    @media only screen and (min-width: 0px) and (max-width: 420px) and (min-height: 0px) and (max-height: 999999px) {
-      #intro a.more {
-        position: relative;
-        float: left;
-        border: none;
-        padding: 0;
-        bottom: auto; } }
-    #intro a.more svg {
-      margin: 18px 10px 0 0;
-      font-size: 24px;
-      display: inline-block;
-      vertical-align: top;
-      width: 16px;
-      height: 19px; }
-      #intro a.more svg g {
-        transition: stroke 0.15s ease-in-out;
-        stroke: #673AB7;
-        stroke-width: 3; }
-    #intro a.more:hover {
-      color: black;
-      border-color: black; }
-      #intro a.more:hover svg g {
-        stroke: #000000; }
+    #intro .text h2 {
+      margin: 0 0 20px 0;
+      text-align: center;
+      color: white;
+      font-size: 50px; }
+    #intro .text h3 {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      color: white;
+      font-size: 30px; }
+    #intro .text a.arrow {
+      display: block;
+      width: 50px;
+      margin: 20px auto; }
+      #intro .text a.arrow img {
+        width: 100%; }
 
 #projects {
+  background: #e0e0e0;
   position: relative;
   padding: 70px 0 0 0;
   box-sizing: border-box; }
@@ -688,61 +640,44 @@ body > header {
     width: 31.33333%;
     margin: 0 1% 30px 1%;
     box-sizing: border-box;
-    cursor: pointer; }
-    #projects article .img {
-      height: 180px;
-      position: relative;
-      background: #eee;
-      overflow: hidden; }
-      #projects article .img img {
-        max-height: 37%;
-        max-width: 53%;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        -webkit-transform: translate3d(-50%, -50%, 0);
-        /* Ch <36, Saf 5.1+, iOS, An =<4.4.4 */
-        transform: translate3d(-50%, -50%, 0);
-        /* IE 10, Fx 16+, Op 12.1+ */ }
-      #projects article .img:before, #projects article .img:after {
-        content: '';
-        display: block;
-        position: absolute;
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-        width: 100%;
-        height: 100%; }
-      #projects article .img:before {
-        background: rgba(103, 58, 183, 0.76);
-        z-index: 1; }
-      #projects article .img:after {
-        background: url(../img/mag.png) center center no-repeat;
-        background-size: 75px 75px;
-        z-index: 2; }
-    #projects article .description p.title {
-      margin: 17px 0 0 0;
-      line-height: 28px;
-      height: 28px;
-      font-size: 18px;
-      color: #333;
-      transition: color 0.15s ease-in-out;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow: hidden; }
-    #projects article .description p.description {
-      margin: 0;
-      line-height: 30px;
-      height: 30px;
-      font-weight: 400;
-      font-size: 14px;
-      color: #777;
-      transition: color 0.15s ease-in-out;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow: hidden; }
-    @media only screen and (min-width: 0px) and (max-width: 600px) and (min-height: 0px) and (max-height: 999999px) {
-      #projects article .description {
-        display: none; } }
+    cursor: pointer;
+    position: relative;
+    padding: 0 0 100px 0; }
+    #projects article img {
+      width: 100%; }
+    #projects article .text {
+      background: white;
+      padding: 20px;
+      box-sizing: border-box;
+      margin: 0 3% 0 3%;
+      width: 94%;
+      height: 128px;
+      position: absolute;
+      bottom: 11px; }
+      #projects article .text p.title {
+        margin: 17px 0 0 0;
+        line-height: 28px;
+        height: 28px;
+        font-size: 18px;
+        color: #333;
+        transition: color 0.15s ease-in-out;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden; }
+      #projects article .text p.description {
+        margin: 0;
+        line-height: 30px;
+        height: 30px;
+        font-weight: 400;
+        font-size: 14px;
+        color: #777;
+        transition: color 0.15s ease-in-out;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden; }
+      @media only screen and (min-width: 0px) and (max-width: 600px) and (min-height: 0px) and (max-height: 999999px) {
+        #projects article .text {
+          display: none; } }
     @media only screen and (min-width: 601px) and (max-width: 1000px) and (min-height: 0px) and (max-height: 999999px) {
       #projects article {
         width: 48%; }
@@ -877,26 +812,26 @@ body > header {
           color: #673AB7; }
         #contact .belt ul li a.email svg {
           stroke: #444444;
-          stroke-width: 16px;
+          stroke-width: 26px;
           fill: none;
-          width: 54px;
+          width: 46px;
           height: 68px; }
         #contact .belt ul li a.email:hover svg {
           stroke: #673AB7; }
         #contact .belt ul li a.linkedin svg {
           stroke: #444444;
-          stroke-width: 20px;
+          stroke-width: 30px;
           fill: none;
-          width: 45px;
-          height: 68px; }
+          width: 40px;
+          height: 66px; }
         #contact .belt ul li a.linkedin:hover svg {
           stroke: #673AB7; }
-        #contact .belt ul li a.github svg {
+        #contact .belt ul li a.instagram svg {
           stroke: none;
           fill: #444;
-          height: 68px;
-          width: 46px; }
-        #contact .belt ul li a.github:hover svg {
+          height: 70px;
+          width: 37px; }
+        #contact .belt ul li a.instagram:hover svg {
           fill: #673AB7; }
         #contact .belt ul li a.quora svg {
           stroke: none;

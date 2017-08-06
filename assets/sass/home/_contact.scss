@@ -46,9 +46,9 @@
           &.email{
             svg{
               stroke: #444444;
-              stroke-width: 16px;
+              stroke-width: 26px;
               fill: none;
-              width: 54px;
+              width: 46px;
               height: 68px;
             }
             &:hover{
@@ -60,10 +60,10 @@
           &.linkedin{
             svg{
               stroke: #444444;
-              stroke-width: 20px;
+              stroke-width: 30px;
               fill: none;
-              width: 45px;
-              height: 68px;
+              width: 40px;
+              height: 66px;
             }
             &:hover{
               svg{
@@ -71,12 +71,12 @@
               }
             }
           }
-          &.github{
+          &.instagram{
             svg{
               stroke: none;
               fill: #444;
-              height: 68px;
-              width: 46px;
+              height: 70px;
+              width: 37px;
             }
             &:hover{
               svg{
