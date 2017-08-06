@@ -8,13 +8,14 @@ html,body{
 }
 
 body,a,div{
-  font-family: $font;
+  font-family: $font_content;
   -webkit-font-smoothing: antialiased;
 }
 
 a{
   color: $color-base;
   text-decoration: none;
+  font-weight: 700;
   &:hover{
     color: darken($color-base, 10%);
     text-decoration: none;
@@ -34,6 +35,6 @@ a{
 }
 
 h1,h2,h3,h4,h5,header{
-  font-family: $font;
+  font-family: $font_header;
   font-weight: 300;
 }

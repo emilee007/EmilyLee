@@ -1,3 +1,26 @@
+@mixin home-section-header{
+  margin: 0 0 48px 0;
+  text-align: center;
+  @include clearfix;
+  span{
+    font-size: 30px;
+    color: black;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    &:after{
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: -5px;
+      height: 2px;
+      background: $color-secondary;
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
 html.home{
   margin: 0;
   padding: 0;
@@ -21,7 +44,6 @@ html.home{
       margin: 0 auto;
       max-width: 1100px;
       padding: 0 30px;
-      height: 100%;
       position: relative;
       box-sizing: border-box;
       @include media(0,600){
@@ -32,8 +54,8 @@ html.home{
 }
 
 @import "nav";
-@import "intro";
+@import "hero";
 @import "projects";
 @import "about";
-@import "contact";
+@import "social-icons";
 @import "popup.project";

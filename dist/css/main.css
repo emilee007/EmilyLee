@@ -1,41 +1,40 @@
-/* latin-ext */
+/* raleway-regular - latin */
 @font-face {
-  font-family: 'Rubik';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Rubik Light"), local("Rubik-Light"), url(/assets/fonts/uvJKCkkt46588W3D3t_gLBkAz4rYn47Zy2rvigWQf6w.woff2) format("woff2");
-  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF; }
-
-/* latin */
-@font-face {
-  font-family: 'Rubik';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Rubik Light"), local("Rubik-Light"), url(/assets/fonts/tRvJQnSw4lmceQIbdzOKGHYhjbSpvc47ee6xR_80Hnw.woff2) format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
-
-/* latin-ext */
-@font-face {
-  font-family: 'Rubik';
+  font-family: 'Raleway';
   font-style: normal;
   font-weight: 400;
-  src: local("Rubik"), local("Rubik-Regular"), url(/assets/fonts/Vi2gYeiEKThJHNpaE3cq54DGDUGfDkXyfkzVDelzfFk.woff2) format("woff2");
-  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF; }
+  src: local("Raleway"), local("Raleway-Regular"), url("../fonts/raleway-v11-latin-regular.woff2") format("woff2"), url("../fonts/raleway-v11-latin-regular.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ }
 
-/* latin */
+/* raleway-500 - latin */
 @font-face {
-  font-family: 'Rubik';
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Raleway Medium"), local("Raleway-Medium"), url("../fonts/raleway-v11-latin-500.woff2") format("woff2"), url("../fonts/raleway-v11-latin-500.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ }
+
+/* lora-regular - latin */
+@font-face {
+  font-family: 'Lora';
   font-style: normal;
   font-weight: 400;
-  src: local("Rubik"), local("Rubik-Regular"), url(/assets/fonts/p_PvaTv0YzIEJlEVv30xK6CWcynf_cDxXwCLxiixG1c.woff2) format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+  src: local("Lora"), local("Lora-Regular"), url("../fonts/lora-v9-latin-regular.woff2") format("woff2"), url("../fonts/lora-v9-latin-regular.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ }
 
-/* latin */
+/* lora-italic - latin */
 @font-face {
-  font-family: 'Rubik';
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  src: local("Lora Italic"), local("Lora-Italic"), url("../fonts/lora-v9-latin-italic.woff2") format("woff2"), url("../fonts/lora-v9-latin-italic.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ }
+
+@font-face {
+  font-family: 'Lora';
   font-style: normal;
   font-weight: 700;
-  src: local("Rubik Bold"), local("Rubik-Bold"), url(https://fonts.gstatic.com/s/rubik/v4/0hS39AKxpJlEXQF3mVPgrnYhjbSpvc47ee6xR_80Hnw.woff2) format("woff2");
+  src: local("Lora Bold"), local("Lora-Bold"), url("../fonts/mlTYdpdDwCepOR2s5kS2CwLUuEpTyoUstqEm5AMlJo4.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
 
 /* This only supports IE10+, and recent versions of evergreen browsers (Chrome, Safari, Firefox) */
@@ -217,14 +216,15 @@ html, body {
   /* Prevent font scaling in landscape */ }
 
 body, a, div {
-  font-family: "Rubik", sans-serif;
+  font-family: "Lora", Georgia, sans-serif;
   -webkit-font-smoothing: antialiased; }
 
 a {
-  color: #673AB7;
-  text-decoration: none; }
+  color: #d300ff;
+  text-decoration: none;
+  font-weight: 700; }
   a:hover {
-    color: #512e90;
+    color: #a900cc;
     text-decoration: none; }
 
 .hidden {
@@ -242,7 +242,7 @@ a {
   clear: both; }
 
 h1, h2, h3, h4, h5, header {
-  font-family: "Rubik", sans-serif;
+  font-family: "Raleway", Helvetica Neue, sans-serif;
   font-weight: 300; }
 
 .progressbar {
@@ -264,7 +264,7 @@ h1, h2, h3, h4, h5, header {
   .progressbar .progress {
     position: absolute;
     width: 20%;
-    background: #673AB7;
+    background: #d300ff;
     height: 100%;
     left: 0;
     top: 0;
@@ -377,7 +377,6 @@ html.home {
     margin: 0 auto;
     max-width: 1100px;
     padding: 0 30px;
-    height: 100%;
     position: relative;
     box-sizing: border-box; }
     @media only screen and (min-width: 0px) and (max-width: 600px) and (min-height: 0px) and (max-height: 999999px) {
@@ -437,9 +436,9 @@ nav {
       transition: fill 0.15s ease-in-out;
       fill: #464646; }
     nav a:hover span, nav a:active span, nav a:focus span {
-      color: #673AB7; }
+      color: #d300ff; }
     nav a:hover svg, nav a:active svg, nav a:focus svg {
-      fill: #673AB7; }
+      fill: #d300ff; }
     nav a.about svg {
       height: 39px;
       width: 50px;
@@ -490,20 +489,20 @@ body > header {
   cursor: pointer;
   font-size: 34px;
   z-index: 100;
-  padding: 29px 54px 32px 10px;
+  padding: 29px 51px 32px 16px;
   position: absolute;
   transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   outline: none;
-  background: #d300ff; }
+  background: white; }
   @media only screen and (min-width: 0px) and (max-width: 600px) and (min-height: 0px) and (max-height: 999999px) {
     .menu-toggle {
       right: 10px;
       top: 10px; } }
   .menu-toggle span, .menu-toggle span:before, .menu-toggle span:after {
     cursor: pointer;
-    height: 1px;
-    width: 45px;
-    background: white;
+    height: 2px;
+    width: 37px;
+    background: black;
     position: absolute;
     display: block;
     content: '';
@@ -536,52 +535,52 @@ body > header {
   .menu-toggle.active:hover span:before, .menu-toggle.active:hover span:after {
     background-color: #d300ff; }
 
-#intro {
+#hero {
   background: url(../img/hero/stars.jpg) top center no-repeat;
   min-height: 700px;
   position: relative;
   box-sizing: border-box;
   height: 100vh;
   background-size: cover; }
-  #intro .top-shading {
+  #hero .top-shading {
     background: linear-gradient(to bottom, black, transparent);
     position: absolute;
     top: 0;
     height: 50%;
     width: 100%; }
-  #intro .main-mountain {
+  #hero .main-mountain {
     background: url(../img/hero/main_mountain.png) bottom center no-repeat;
     height: 256px;
     width: 100%;
     background-size: contain;
     position: absolute;
     bottom: 0; }
-  #intro .side-mountains {
+  #hero .side-mountains {
     background: url(../img/hero/side_mountains.png) bottom center no-repeat;
     height: 115px;
     width: 100%;
     background-size: cover;
     position: absolute;
     bottom: 0; }
-  #intro .background-trees {
+  #hero .background-trees {
     background: url(../img/hero/background_trees.png) bottom center no-repeat;
     height: 140px;
     width: 100%;
     background-size: contain;
     position: absolute;
     bottom: 0; }
-  #intro .front-trees {
+  #hero .front-trees {
     background: url(../img/hero/front_trees.png) bottom center no-repeat;
     height: 243px;
     width: 100%;
     background-size: contain;
     position: absolute;
     bottom: 0; }
-  #intro img.logo {
+  #hero img.logo {
     position: absolute;
     left: 20px;
     top: 20px; }
-  #intro .text {
+  #hero .text {
     position: absolute;
     top: 50%;
     width: 100%;
@@ -589,28 +588,29 @@ body > header {
     /* Ch <36, Saf 5.1+, iOS, An =<4.4.4 */
     transform: translateY(-50%);
     /* IE 10, Fx 16+, Op 12.1+ */ }
-    #intro .text h2 {
+    #hero .text h2 {
       margin: 0 0 20px 0;
       text-align: center;
       color: white;
       font-size: 50px; }
-    #intro .text h3 {
+    #hero .text h3 {
+      font-family: "Lora", Georgia, sans-serif;
       max-width: 800px;
       margin: 0 auto;
       text-align: center;
       color: white;
       font-size: 30px; }
-    #intro .text a.arrow {
+    #hero .text a.arrow {
       display: block;
       width: 50px;
       margin: 20px auto; }
-      #intro .text a.arrow img {
+      #hero .text a.arrow img {
         width: 100%; }
 
 #projects {
-  background: #e0e0e0;
+  background: #d4d4d4;
   position: relative;
-  padding: 70px 0 0 0;
+  padding: 50px 0 0 0;
   box-sizing: border-box; }
   #projects:after {
     content: '';
@@ -623,15 +623,27 @@ body > header {
     #projects {
       padding: 0; } }
   #projects h3 {
-    font-size: 22px;
-    margin: 0 0 40px 0;
-    color: #828181; }
-    @media only screen and (min-width: 0px) and (max-width: 600px) and (min-height: 0px) and (max-height: 999999px) {
-      #projects h3 {
-        padding: 0 15px; } }
-    @media only screen and (min-width: 0px) and (max-width: 420px) and (min-height: 0px) and (max-height: 999999px) {
-      #projects h3 {
-        display: none; } }
+    margin: 0 0 48px 0;
+    text-align: center; }
+    #projects h3:after {
+      content: '';
+      display: table;
+      clear: both; }
+    #projects h3 span {
+      font-size: 30px;
+      color: black;
+      text-align: center;
+      position: relative;
+      display: inline-block; }
+      #projects h3 span:after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: -5px;
+        height: 2px;
+        background: #0a78ec;
+        left: 0;
+        right: 0; }
   @media only screen and (min-width: 0px) and (max-width: 600px) and (min-height: 0px) and (max-height: 999999px) {
     #projects .belt {
       padding: 0; } }
@@ -649,78 +661,31 @@ body > header {
       background: white;
       padding: 20px;
       box-sizing: border-box;
-      margin: 0 3% 0 3%;
-      width: 94%;
-      height: 128px;
+      margin: 0 5% 0 5%;
+      width: 90%;
+      height: 110px;
       position: absolute;
-      bottom: 11px; }
-      #projects article .text p.title {
-        margin: 17px 0 0 0;
-        line-height: 28px;
-        height: 28px;
-        font-size: 18px;
-        color: #333;
-        transition: color 0.15s ease-in-out;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden; }
+      bottom: 30px;
+      text-align: center;
+      transition: all 0.15s ease-in-out; }
+      #projects article .text p.meta {
+        font-family: "Raleway", Helvetica Neue, sans-serif;
+        text-transform: uppercase;
+        font-weight: 500;
+        color: #797979;
+        font-size: 15px;
+        margin: 0 0 10px 0;
+        transition: color 0.15s ease-in-out; }
       #projects article .text p.description {
         margin: 0;
-        line-height: 30px;
-        height: 30px;
         font-weight: 400;
-        font-size: 14px;
-        color: #777;
+        font-size: 17px;
+        color: #000;
         transition: color 0.15s ease-in-out;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden; }
-      @media only screen and (min-width: 0px) and (max-width: 600px) and (min-height: 0px) and (max-height: 999999px) {
-        #projects article .text {
-          display: none; } }
-    @media only screen and (min-width: 601px) and (max-width: 1000px) and (min-height: 0px) and (max-height: 999999px) {
-      #projects article {
-        width: 48%; }
-        #projects article .img {
-          height: 220px; }
-          #projects article .img img {
-            max-height: 27%;
-            max-width: 50%; } }
-    @media only screen and (min-width: 0px) and (max-width: 600px) and (min-height: 0px) and (max-height: 999999px) {
-      #projects article {
-        width: 100%;
-        margin: 0 0 30px 0; }
-        #projects article .img {
-          height: 230px; }
-          #projects article .img img {
-            max-height: 28%;
-            max-width: 40%; } }
-    #projects article[data-id="marvel"] .img {
-      background: #ef0000; }
-    #projects article[data-id="advizr"] .img {
-      background: #3c3c3c; }
-    #projects article[data-id="ciro"] .img {
-      background: linear-gradient(to bottom right, #dcd9d9, #d8d8d8); }
-      #projects article[data-id="ciro"] .img img {
-        max-height: 70px; }
-    #projects article[data-id="devotify"] .img {
-      background: linear-gradient(to bottom right, #1a435b, #6c286d); }
-      #projects article[data-id="devotify"] .img img {
-        max-height: 50%; }
-    #projects article[data-id="roadsign"] .img {
-      background: linear-gradient(to bottom right, #ffe7d7, #97aebc); }
-      #projects article[data-id="roadsign"] .img img {
-        max-width: 73%;
-        max-height: 68%; }
-    #projects article[data-id="nextemr"] .img {
-      background: #32ba6b; }
-    @media only screen and (min-width: 0px) and (max-width: 600px) and (min-height: 0px) and (max-height: 999999px) {
-      #projects article {
-        margin: 0; } }
-    html.not-iOS #projects article:hover p.title {
-      color: #673AB7; }
-    html.not-iOS #projects article:hover .img:before, html.not-iOS #projects article:hover .img:after {
-      opacity: 1; }
+        line-height: 1.4; }
+      #projects article .text.hover {
+        box-shadow: rgba(0, 0, 0, 0.3) 0 0 15px;
+        bottom: 39px; }
   #projects .projects-container {
     margin: 0 -1% 0 -1%; }
     #projects .projects-container:after {
@@ -731,124 +696,125 @@ body > header {
       #projects .projects-container {
         margin: 0; } }
 
-#about .belt {
-  padding: 50px 30px 0 30px;
-  position: relative;
-  box-sizing: border-box; }
-  #about .belt h3 {
-    font-size: 22px;
-    margin: 0 0 20px 0;
-    color: #828181; }
-  #about .belt img {
-    width: 30%;
-    border-radius: 250px;
-    float: right;
-    margin: -30px 0 0 0; }
-  #about .belt p {
-    margin: 0 0 20px 0;
-    line-height: 1.5;
-    color: #666;
-    font-size: 17px;
-    width: 55%; }
-    #about .belt p:last-child {
-      margin: 0; }
-  @media only screen and (min-width: 0px) and (max-width: 1000px) and (min-height: 0px) and (max-height: 999999px) {
-    #about .belt {
-      padding: 45px 15px 0 15px; }
-      #about .belt:before {
-        display: none; }
-      #about .belt p {
-        width: auto; }
-      #about .belt img {
-        width: 50%;
-        margin: 0 0 20px 20px;
-        max-width: 300px; }
-      #about .belt h3 {
-        margin: 0 0 20px 0; } }
-  @media only screen and (min-width: 0px) and (max-width: 500px) and (min-height: 0px) and (max-height: 999999px) {
-    #about .belt img {
-      float: none; } }
-
-#contact .belt {
-  padding: 50px 30px;
-  position: relative;
-  box-sizing: border-box; }
-  #contact .belt h3 {
-    font-size: 22px;
-    margin: 0 0 10px 0;
-    color: #828181; }
-  #contact .belt ul {
-    display: block;
-    margin: 0 auto;
-    padding: 0; }
-    #contact .belt ul:after {
+#about {
+  padding: 50px 0 100px 0; }
+  #about h3 {
+    margin: 0 0 48px 0;
+    text-align: center; }
+    #about h3:after {
       content: '';
       display: table;
       clear: both; }
-    #contact .belt ul li {
-      display: block;
-      margin: 0 20px 0 0;
-      padding: 0;
-      float: left; }
-      #contact .belt ul li a {
+    #about h3 span {
+      font-size: 30px;
+      color: black;
+      text-align: center;
+      position: relative;
+      display: inline-block; }
+      #about h3 span:after {
+        content: '';
         display: block;
-        position: relative;
-        margin: 0;
-        padding: 0;
-        outline: none;
-        text-align: center; }
-        #contact .belt ul li a span {
-          ffont-size: 16px;
-          color: #656565;
-          transition: color 0.15s ease-in-out;
-          display: block;
-          line-height: 26px; }
-        #contact .belt ul li a svg {
-          display: inline-block;
-          vertical-align: top;
-          color: #c5c5c5;
-          transition: stroke 0.15s ease-in-out, fill 0.15s ease-in-out; }
-        #contact .belt ul li a:hover span, #contact .belt ul li a:active span, #contact .belt ul li a:focus span {
-          color: #673AB7; }
-        #contact .belt ul li a.email svg {
-          stroke: #444444;
-          stroke-width: 26px;
-          fill: none;
-          width: 46px;
-          height: 68px; }
-        #contact .belt ul li a.email:hover svg {
-          stroke: #673AB7; }
-        #contact .belt ul li a.linkedin svg {
-          stroke: #444444;
-          stroke-width: 30px;
-          fill: none;
-          width: 40px;
-          height: 66px; }
-        #contact .belt ul li a.linkedin:hover svg {
-          stroke: #673AB7; }
-        #contact .belt ul li a.instagram svg {
-          stroke: none;
-          fill: #444;
-          height: 70px;
-          width: 37px; }
-        #contact .belt ul li a.instagram:hover svg {
-          fill: #673AB7; }
-        #contact .belt ul li a.quora svg {
-          stroke: none;
-          fill: #444;
-          height: 68px;
-          width: 37px; }
-        #contact .belt ul li a.quora:hover svg {
-          fill: #673AB7; }
-  @media only screen and (min-width: 0px) and (max-width: 600px) and (min-height: 0px) and (max-height: 999999px) {
-    #contact .belt {
-      padding: 30px 15px 50px 15px; }
-      #contact .belt:before {
-        display: none; }
-      #contact .belt p {
-        width: auto; }
-      #contact .belt h3 {
-        margin: 0 0 20px 0; } }
+        position: absolute;
+        bottom: -5px;
+        height: 2px;
+        background: #0a78ec;
+        left: 0;
+        right: 0; }
+  #about .belt {
+    padding: 50px 30px 0 30px;
+    position: relative;
+    box-sizing: border-box; }
+    #about .belt img {
+      width: 30%;
+      border-radius: 250px;
+      float: right;
+      margin: -30px 0 0 0; }
+    #about .belt p {
+      margin: 0 0 20px 0;
+      line-height: 1.5;
+      color: #666;
+      font-size: 17px;
+      width: 55%; }
+      #about .belt p:last-child {
+        margin: 0; }
+    @media only screen and (min-width: 0px) and (max-width: 1000px) and (min-height: 0px) and (max-height: 999999px) {
+      #about .belt {
+        padding: 45px 15px 0 15px; }
+        #about .belt:before {
+          display: none; }
+        #about .belt p {
+          width: auto; }
+        #about .belt img {
+          width: 50%;
+          margin: 0 0 20px 20px;
+          max-width: 300px; } }
+    @media only screen and (min-width: 0px) and (max-width: 500px) and (min-height: 0px) and (max-height: 999999px) {
+      #about .belt img {
+        float: none; } }
+
+#about .belt ul.so-icons {
+  display: block;
+  margin: 30px auto 0 auto;
+  padding: 0; }
+  #about .belt ul.so-icons:after {
+    content: '';
+    display: table;
+    clear: both; }
+  #about .belt ul.so-icons li {
+    display: block;
+    margin: 0 20px 0 0;
+    padding: 0;
+    float: left; }
+    #about .belt ul.so-icons li a {
+      display: block;
+      position: relative;
+      margin: 0;
+      padding: 0;
+      outline: none;
+      text-align: center; }
+      #about .belt ul.so-icons li a span {
+        font-size: 16px;
+        color: #656565;
+        transition: color 0.15s ease-in-out;
+        display: block;
+        line-height: 26px; }
+      #about .belt ul.so-icons li a svg {
+        display: inline-block;
+        vertical-align: top;
+        color: #c5c5c5;
+        transition: stroke 0.15s ease-in-out, fill 0.15s ease-in-out; }
+      #about .belt ul.so-icons li a:hover span, #about .belt ul.so-icons li a:active span, #about .belt ul.so-icons li a:focus span {
+        color: #d300ff; }
+      #about .belt ul.so-icons li a.email svg {
+        stroke: #444444;
+        stroke-width: 26px;
+        fill: none;
+        width: 46px;
+        height: 68px; }
+      #about .belt ul.so-icons li a.email:hover svg {
+        stroke: #d300ff; }
+      #about .belt ul.so-icons li a.linkedin svg {
+        stroke: #444444;
+        stroke-width: 30px;
+        fill: none;
+        width: 40px;
+        height: 66px; }
+      #about .belt ul.so-icons li a.linkedin:hover svg {
+        stroke: #d300ff; }
+      #about .belt ul.so-icons li a.instagram svg {
+        stroke: none;
+        fill: #444;
+        height: 70px;
+        width: 37px; }
+      #about .belt ul.so-icons li a.instagram:hover svg {
+        fill: #d300ff; }
+      #about .belt ul.so-icons li a.quora svg {
+        stroke: none;
+        fill: #444;
+        height: 68px;
+        width: 37px; }
+      #about .belt ul.so-icons li a.quora:hover svg {
+        fill: #d300ff; }
 
 #popup .project header {
   background: linear-gradient(to bottom right, #1a435b, #6c286d);
@@ -923,8 +889,8 @@ body > header {
     #popup .project .text a.ext-link i {
       margin: 0 0 0 5px; }
     #popup .project .text a.ext-link:hover {
-      color: #673AB7;
-      border-color: #673AB7; }
+      color: #d300ff;
+      border-color: #d300ff; }
     @media only screen and (min-width: 0px) and (max-width: 600px) and (min-height: 0px) and (max-height: 999999px) {
       #popup .project .text a.ext-link {
         display: block;

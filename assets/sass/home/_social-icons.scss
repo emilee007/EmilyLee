@@ -1,0 +1,92 @@
+#about .belt ul.so-icons{
+  display: block;
+  margin: 30px auto 0 auto;
+  padding: 0;
+  @include clearfix;
+  li{
+    display: block;
+    margin: 0 20px 0 0;
+    padding: 0;
+    float: left;
+    a{
+      display: block;
+      position: relative;
+      margin: 0;
+      padding: 0;
+      outline: none;
+      text-align: center;
+      span{
+        font-size: 16px;
+        color: #656565;
+        transition: color 0.15s ease-in-out;
+        display: block;
+        line-height: 26px;
+      }
+      svg{
+        display: inline-block;
+        vertical-align: top;
+        color: #c5c5c5;
+        transition: stroke 0.15s ease-in-out, fill 0.15s ease-in-out;
+      }
+      &:hover,&:active,&:focus{
+        span{
+          color: $color-base;
+        }
+      }
+      &.email{
+        svg{
+          stroke: #444444;
+          stroke-width: 26px;
+          fill: none;
+          width: 46px;
+          height: 68px;
+        }
+        &:hover{
+          svg{
+            stroke: $color-base;
+          }
+        }
+      }
+      &.linkedin{
+        svg{
+          stroke: #444444;
+          stroke-width: 30px;
+          fill: none;
+          width: 40px;
+          height: 66px;
+        }
+        &:hover{
+          svg{
+            stroke: $color-base;
+          }
+        }
+      }
+      &.instagram{
+        svg{
+          stroke: none;
+          fill: #444;
+          height: 70px;
+          width: 37px;
+        }
+        &:hover{
+          svg{
+            fill: $color-base;
+          }
+        }
+      }
+      &.quora{
+        svg{
+          stroke: none;
+          fill: #444;
+          height: 68px;
+          width: 37px;
+        }
+        &:hover{
+          svg{
+            fill: $color-base;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1132,6 +1132,16 @@ window.router = (function(match){
 			e.preventDefault();
 			_scrollTo($(this).data('jump'));
 		});
+
+		//hover project
+		$body.on('mouseover mouseenter', 'article', function(){
+			var $this = $(this);
+			$this.find('.text').addClass('hover');
+		});
+    $body.on('mouseout mouseleave', 'article', function(){
+      var $this = $(this);
+      $this.find('.text').removeClass('hover');
+    });
 	}
 
 	function _load(id, onSuccess){

@@ -1,4 +1,4 @@
-#intro{
+#hero{
   background: url(../img/hero/stars.jpg) top center no-repeat;
   min-height: 700px;
   position: relative;
@@ -61,6 +61,7 @@
       font-size: 50px;
     }
     h3{
+      font-family: $font_content;
       max-width: 800px;
       margin: 0 auto;
       text-align: center;

@@ -121,11 +121,11 @@ body > header{
   cursor: pointer;
   font-size: 34px;
   z-index: 100;
-  padding: 29px 54px 32px 10px;
+  padding: 29px 51px 32px 16px;
   position: absolute;
   transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   outline: none;
-  background: #d300ff;
+  background: white;
 
   @include media(0,600){
     right: 10px;
@@ -134,9 +134,9 @@ body > header{
 
   span, span:before, span:after{
     cursor: pointer;
-    height: 1px;
-    width: 45px;
-    background: white;
+    height: 2px;
+    width: 37px;
+    background: black;
     position: absolute;
     display: block;
     content: '';
