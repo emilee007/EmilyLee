@@ -1032,6 +1032,202 @@ window.router = (function(match){
 		setControllers: function(controllers){ _my.controllers = controllers; }
 	};
 })(routeMatcher);
+var util = (function util(my){
+
+  'use strict';
+
+  var $html = $('html');
+
+  /**
+   * Environment detection. Returns information about the browser, OS, ADV master Area, etc.
+   * Possible keywords:
+   * isChrome, isSafari, isiOS, isMac
+   * @param test
+   * @returns {*}
+   */
+  my.env = function env(test){
+    var tests = {};
+    tests.isChrome = function(){ return /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);};
+    tests.isSafari = function(){ return /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);};
+    tests.isiOS = function(){ return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;};
+    tests.isMac = function(){ return navigator.platform.toUpperCase().indexOf('MAC')>=0; };
+
+    //make sure test exists
+    if(typeof tests[test] === 'undefined'){
+      throw "test '" + test + "' is not defined in Pivot.util.env";
+    }
+
+    return tests[test].apply();
+  };
+
+  my.featureDetect = function _featureDetect(){
+    //add some classes to html
+    if(my.env('isMac')){
+      $html.addClass('mac');
+    } else {
+      $html.addClass('not-mac');
+    }
+    if(my.env('isiOS')){
+      $html.addClass('iOS');
+    } else {
+      $html.addClass('not-iOS');
+    }
+    if(my.env('isSafari')){
+      $html.addClass('safari');
+    } else {
+      $html.addClass('not-safari');
+    }
+  };
+
+  /**
+   * Loads a popup content.
+   * @param id
+   * @param onSuccess
+   */
+  my.load = function _load(id, onSuccess){
+    $.ajax({
+      url: 'content/' + id + '/index.html',
+      success: onSuccess
+    });
+  };
+
+  /**
+   * Scrolls to a section of the page.
+   * "No need to ask, he's a smooooth operator..."
+   */
+  my.scrollTo = (function scrollTo(){
+    var raf = (function(){
+      return  window.requestAnimationFrame   ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame    ||
+        function( callback ){
+          window.setTimeout(callback, 1000 / 60);
+        };
+    })();
+
+    function scrollToY(scrollTargetY, speed) {
+      // scrollTargetY: the target scrollY property of the window
+      // speed: time in pixels per second
+      // easing: easing equation to use
+
+      var scrollY = window.scrollY || document.documentElement.scrollTop,
+        currentTime = 0;
+      scrollTargetY = scrollTargetY || 0,
+        speed = speed || 2000;
+
+      // min time .1, max time 20 seconds
+      var time = Math.max(.1, Math.min(Math.abs(scrollY - scrollTargetY) / speed, 20));
+
+      // easing equation
+      function easingEquation(pos) {
+        return (-0.5 * (Math.cos(Math.PI * pos) - 1));
+      }
+
+      // add animation loop
+      function tick() {
+        currentTime += 1 / 60;
+
+        var p = currentTime / time;
+        var t = easingEquation(p);
+
+        if (p < 1) {
+          raf(tick);
+          window.scrollTo(0, scrollY + ((scrollTargetY - scrollY) * t));
+        } else {
+          console.log('scroll done');
+          window.scrollTo(0, scrollTargetY);
+        }
+      }
+
+      // call it once to get started
+      tick();
+    }
+
+    return function(id){
+      var $elem = $('#' + id);
+      scrollToY($elem.offset().top, 1200);
+    };
+
+  })();
+
+  return my;
+
+})(util || {});
+window.Hero = function hero(){
+
+  var $scope = $('#hero');
+
+  var bottom = $scope.height();
+
+  var $main_mountain = $scope.find('object.main-mountain');
+  var $side_mountains = $scope.find('object.side-mountains');
+  var $front_trees = $scope.find('object.front-trees');
+
+  var last_scroll = 0;
+
+  var animateInterval;
+
+  var raf = (function(){
+    return  window.requestAnimationFrame   ||
+      window.webkitRequestAnimationFrame ||
+      window.mozRequestAnimationFrame    ||
+      function( callback ){
+        window.setTimeout(callback, 1000 / 60);
+      };
+  })();
+
+  function animate(){
+    if(animateInterval) return;
+    animateInterval = setTimeout(function(){
+      draw();
+      animateInterval = false;
+    }, 20);
+  }
+
+  function draw(){
+    raf(function(){
+      _updatePosMainMountain();
+      _updatePosSideMountain();
+      //_updatePosFrontTrees();
+    });
+  }
+
+  function _updatePosMainMountain(){
+    var element = $main_mountain.get(0);
+    var translateY = (1 + last_scroll * .25).toFixed(2);
+    var transform = 'translate3d(-50%, ' + translateY + 'px, 0)';
+
+    element.style.transform = transform;
+    element.style.WebkitTransform = transform;
+  }
+
+  function _updatePosSideMountain(){
+    var element = $side_mountains.get(0);
+    var translateY = (1 + last_scroll * .4).toFixed(2);
+    var transform = 'translate3d(-50%, ' + translateY + 'px, 0)';
+
+    element.style.transform = transform;
+    element.style.WebkitTransform = transform;
+  }
+
+  function _updatePosFrontTrees(){
+    var element = $front_trees.get(0);
+    var translateY = -(1 + last_scroll * .05).toFixed(2);
+    var transform = 'translate3d(-50%, ' + translateY + 'px, 0)';
+
+    element.style.transform = transform;
+    element.style.WebkitTransform = transform;
+  }
+
+
+  window.addEventListener("scroll", function() {
+    last_scroll = window.scrollY;
+    if(last_scroll < bottom){
+      animate();
+    }
+  });
+
+};
 (function() {
 
 	var $body = $('body'),
@@ -1047,7 +1243,10 @@ window.router = (function(match){
 	function _init() {
 
 		//feature detection
-		_featureDetection();
+		util.featureDetect();
+
+		//init parallax
+		new Hero();
 
 		//bind events
 		_bindEvents();
@@ -1061,47 +1260,6 @@ window.router = (function(match){
 
 		//route!
 		router.route();
-	}
-
-	function _featureDetection(){
-		//add some classes to html
-		if(_env('isMac')){
-			$('html').addClass('mac');
-		} else {
-			$('html').addClass('not-mac');
-		}
-		if(_env('isiOS')){
-			$('html').addClass('iOS');
-		} else {
-			$('html').addClass('not-iOS');
-		}
-		if(_env('isSafari')){
-			$('html').addClass('safari');
-		} else {
-			$('html').addClass('not-safari');
-		}
-	}
-
-	/**
-	 * Environment detection. Returns information about the browser, OS, ADV master Area, etc.
-	 * Possible keywords:
-	 * isChrome, isSafari, isiOS, isMac
-	 * @param test
-	 * @returns {*}
-	 */
-	function _env(test){
-		var tests = {};
-		tests.isChrome = function(){ return /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);};
-		tests.isSafari = function(){ return /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);};
-		tests.isiOS = function(){ return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;};
-		tests.isMac = function(){ return navigator.platform.toUpperCase().indexOf('MAC')>=0; };
-
-		//make sure test exists
-		if(typeof tests[test] === 'undefined'){
-			throw "test '" + test + "' is not defined in Pivot.util.env";
-		}
-
-		return tests[test].apply();
 	}
 
 	function _bindEvents() {
@@ -1130,7 +1288,7 @@ window.router = (function(match){
 		//nav
 		$body.on('click', '[data-jump]', function(e){
 			e.preventDefault();
-			_scrollTo($(this).data('jump'));
+			util.scrollTo($(this).data('jump'));
 		});
 
 		//hover project
@@ -1144,18 +1302,16 @@ window.router = (function(match){
     });
 	}
 
-	function _load(id, onSuccess){
-		$.ajax({
-			url: 'content/' + id + '/index.html',
-			success: onSuccess
-		});
-	}
-
+  /**
+	 * Open popup.
+   * @param id
+   * @private
+   */
 	function _open(id){
 		//prevent page scroll
 		$body.css('overflow', 'hidden');
 		_showProgressBar();
-		_load(id, function(content){
+		util.load(id, function(content){
 			$popup.addClass(id);
 			$popup.find('.content').html(content).css('display','block');
 			var num_images = $popup.find('img').length,
@@ -1226,62 +1382,6 @@ window.router = (function(match){
 			_close(true);
 		}
 	};
-
-	//No need to ask, he's a smooth operator
-	var _scrollTo = (function(){
-		window.requestAnimFrame = (function(){
-			return  window.requestAnimationFrame   ||
-				window.webkitRequestAnimationFrame ||
-				window.mozRequestAnimationFrame    ||
-				function( callback ){
-					window.setTimeout(callback, 1000 / 60);
-				};
-		})();
-
-		function scrollToY(scrollTargetY, speed) {
-			// scrollTargetY: the target scrollY property of the window
-			// speed: time in pixels per second
-			// easing: easing equation to use
-
-			var scrollY = window.scrollY || document.documentElement.scrollTop,
-				currentTime = 0;
-				scrollTargetY = scrollTargetY || 0,
-				speed = speed || 2000;
-
-			// min time .1, max time 20 seconds
-			var time = Math.max(.1, Math.min(Math.abs(scrollY - scrollTargetY) / speed, 20));
-
-			// easing equation
-			function easingEquation(pos) {
-				return (-0.5 * (Math.cos(Math.PI * pos) - 1));
-			}
-
-			// add animation loop
-			function tick() {
-				currentTime += 1 / 60;
-
-				var p = currentTime / time;
-				var t = easingEquation(p);
-
-				if (p < 1) {
-					requestAnimFrame(tick);
-					window.scrollTo(0, scrollY + ((scrollTargetY - scrollY) * t));
-				} else {
-					console.log('scroll done');
-					window.scrollTo(0, scrollTargetY);
-				}
-			}
-
-			// call it once to get started
-			tick();
-		}
-
-		return function(id){
-			var $elem = $('#' + id);
-			scrollToY($elem.offset().top, 1200);
-		};
-
-	})();
 
 	_init();
 

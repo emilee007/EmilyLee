@@ -65,6 +65,18 @@
   }
 }
 
+@include keyframes(textSlideUp){
+  0%{
+    opacity: 0;
+    @include translate3d(0, 20px, 0);
+  }
+  100%{
+    opacity: 1;
+    @include translate3d(0, 0, 0);
+  }
+}
+
+
 @mixin fadeIn($duration){
   @include animation(fadeIn $duration);
   @include animation-easing(ease-in-out);

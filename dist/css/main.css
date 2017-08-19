@@ -206,6 +206,34 @@
     transform: translate(0, 0);
     /* IE 10, Fx 16+, Op 12.1+ */ } }
 
+@-webkit-keyframes textSlideUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 20px, 0);
+    /* Ch <36, Saf 5.1+, iOS, An =<4.4.4 */
+    transform: translate3d(0, 20px, 0);
+    /* IE 10, Fx 16+, Op 12.1+ */ }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    /* Ch <36, Saf 5.1+, iOS, An =<4.4.4 */
+    transform: translate3d(0, 0, 0);
+    /* IE 10, Fx 16+, Op 12.1+ */ } }
+
+@keyframes textSlideUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 20px, 0);
+    /* Ch <36, Saf 5.1+, iOS, An =<4.4.4 */
+    transform: translate3d(0, 20px, 0);
+    /* IE 10, Fx 16+, Op 12.1+ */ }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    /* Ch <36, Saf 5.1+, iOS, An =<4.4.4 */
+    transform: translate3d(0, 0, 0);
+    /* IE 10, Fx 16+, Op 12.1+ */ } }
+
 html, body {
   margin: 0;
   padding: 0;
@@ -536,50 +564,36 @@ body > header {
     background-color: #d300ff; }
 
 #hero {
-  background: url(../img/hero/stars.jpg) top center no-repeat;
+  background: linear-gradient(to top, #126546, #073b65);
   min-height: 700px;
+  max-height: 1000px;
   position: relative;
   box-sizing: border-box;
   height: 100vh;
-  background-size: cover; }
-  #hero .top-shading {
-    background: linear-gradient(to bottom, black, transparent);
-    position: absolute;
-    top: 0;
-    height: 50%;
-    width: 100%; }
-  #hero .main-mountain {
-    background: url(../img/hero/main_mountain.png) bottom center no-repeat;
-    height: 256px;
-    width: 100%;
-    background-size: contain;
-    position: absolute;
-    bottom: 0; }
-  #hero .side-mountains {
-    background: url(../img/hero/side_mountains.png) bottom center no-repeat;
-    height: 115px;
-    width: 100%;
-    background-size: cover;
-    position: absolute;
-    bottom: 0; }
-  #hero .background-trees {
-    background: url(../img/hero/background_trees.png) bottom center no-repeat;
-    height: 140px;
-    width: 100%;
-    background-size: contain;
-    position: absolute;
-    bottom: 0; }
-  #hero .front-trees {
-    background: url(../img/hero/front_trees.png) bottom center no-repeat;
-    height: 243px;
-    width: 100%;
-    background-size: contain;
-    position: absolute;
-    bottom: 0; }
-  #hero img.logo {
+  background-size: cover;
+  overflow: hidden; }
+  #hero svg.logo {
     position: absolute;
     left: 20px;
-    top: 20px; }
+    top: 20px;
+    cursor: pointer;
+    width: 186px;
+    height: 65px; }
+    #hero svg.logo .a {
+      fill: none;
+      stroke-linejoin: round;
+      stroke-width: 2;
+      stroke: #FFF; }
+    #hero svg.logo .b {
+      fill: #FFF;
+      stroke: #FFF; }
+    #hero svg.logo .c {
+      fill: none;
+      stroke-width: 2;
+      stroke: #FFF;
+      transition: all 0.2s ease-in-out; }
+    #hero svg.logo:hover .c {
+      stroke: #00d2dc; }
   #hero .text {
     position: absolute;
     top: 50%;
@@ -592,20 +606,69 @@ body > header {
       margin: 0 0 20px 0;
       text-align: center;
       color: white;
-      font-size: 50px; }
+      font-size: 49px; }
     #hero .text h3 {
       font-family: "Lora", Georgia, sans-serif;
-      max-width: 800px;
+      max-width: 771px;
       margin: 0 auto;
       text-align: center;
       color: white;
-      font-size: 30px; }
+      font-size: 30px;
+      line-height: 1.3;
+      padding: 0 30px;
+      box-sizing: border-box; }
     #hero .text a.arrow {
       display: block;
       width: 50px;
-      margin: 20px auto; }
+      margin: 34px auto 0 auto;
+      transition: -webkit-transform 0.2s ease-in-out, transform 0.2s ease-in-out; }
       #hero .text a.arrow img {
         width: 100%; }
+      #hero .text a.arrow:hover {
+        -webkit-transform: scale(1.1, 1.1);
+        /* Ch <36, Saf 5.1+, iOS, An =<4.4.4 */
+        transform: scale(1.1, 1.1);
+        /* IE 10, Fx 16+, Op 12.1+ */ }
+  #hero .top-shading {
+    background: linear-gradient(to bottom, black, transparent);
+    position: absolute;
+    top: 0;
+    height: 50%;
+    width: 100%; }
+  #hero .main-mountain {
+    height: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0); }
+  #hero .side-mountains {
+    position: absolute;
+    bottom: 0;
+    height: 40%;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0); }
+  #hero .background-trees {
+    height: 22%;
+    width: 100%;
+    position: absolute;
+    bottom: 0; }
+  #hero .front-trees {
+    height: 40%;
+    position: absolute;
+    bottom: -5%;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0); }
+    #hero .front-trees svg {
+      fill: #050c13; }
+  #hero .stars {
+    position: absolute;
+    background: url(../img/hero/stars.svg);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0; }
 
 #projects {
   background: #d4d4d4;
@@ -656,8 +719,15 @@ body > header {
     position: relative;
     padding: 0 0 100px 0; }
     #projects article img {
-      width: 100%; }
+      display: block;
+      width: 100%;
+      -webkit-animation: fadeIn 0.8s;
+      animation: fadeIn 0.8s;
+      -webkit-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      margin: 0; }
     #projects article .text {
+      display: none;
       background: white;
       padding: 20px;
       box-sizing: border-box;
@@ -667,7 +737,11 @@ body > header {
       position: absolute;
       bottom: 30px;
       text-align: center;
-      transition: all 0.15s ease-in-out; }
+      transition: all 0.15s ease-in-out;
+      -webkit-animation: textSlideUp 0.8s;
+      animation: textSlideUp 0.8s;
+      -webkit-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
       #projects article .text p.meta {
         font-family: "Raleway", Helvetica Neue, sans-serif;
         text-transform: uppercase;
@@ -686,6 +760,19 @@ body > header {
       #projects article .text.hover {
         box-shadow: rgba(0, 0, 0, 0.3) 0 0 15px;
         bottom: 39px; }
+    #projects article.hidden {
+      display: block; }
+      #projects article.hidden img, #projects article.hidden div {
+        display: none; }
+      #projects article.hidden:before {
+        content: '';
+        display: block;
+        height: 200px;
+        background: #bbbbbb;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0; }
   #projects .projects-container {
     margin: 0 -1% 0 -1%; }
     #projects .projects-container:after {

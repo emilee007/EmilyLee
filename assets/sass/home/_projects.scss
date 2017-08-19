@@ -27,9 +27,14 @@
     position: relative;
     padding: 0 0 100px 0;
     img{
+      display: block;
       width: 100%;
+      @include animation(fadeIn 0.8s);
+      @include animation-easing(cubic-bezier(0.25, 0.46, 0.45, 0.94));
+      margin: 0;
     }
     .text{
+      display: none;
       background: white;
       padding: 20px;
       box-sizing: border-box;
@@ -40,6 +45,8 @@
       bottom: 30px;
       text-align: center;
       transition: all 0.15s ease-in-out;
+      @include animation(textSlideUp 0.8s);
+      @include animation-easing(cubic-bezier(0.25, 0.46, 0.45, 0.94));
       p.meta{
         font-family: $font_header;
         text-transform: uppercase;
@@ -60,6 +67,22 @@
       &.hover{
         box-shadow: rgba(0,0,0,0.3) 0 0 15px;
         bottom: 39px;
+      }
+    }
+    &.hidden{
+      display: block;
+      img, div{
+        display: none;
+      }
+      &:before{
+        content: '';
+        display: block;
+        height: 200px;
+        background: #bbbbbb;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
       }
     }
   }
