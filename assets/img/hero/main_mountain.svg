@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg fill="#011B28" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<svg fill="url(#linear)" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="1210px" height="398px" viewBox="0 0 1210 398" enable-background="new 0 0 1210 398" xml:space="preserve">
+	<defs>
+    <linearGradient id="linear" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#03151e"/>
+      <stop offset="100%" stop-color="#01262b"/>
+    </linearGradient>
+  </defs>
 <path d="M1204.743,398c-2.067-17.209-17.91-141.336-46.851-159.178c-10.876-6.705-44.77-46.313-44.77-46.313
 	s-18.012,0.515-24.701-1.543s-17.496-8.234-26.244-13.379c-8.748-5.146-27.789-15.438-29.848-22.128
 	c-2.058-6.69-18.011-12.35-24.701-10.292c-6.689,2.058-10.807,3.602-15.438,3.602s-14.408-7.204-30.361-11.835

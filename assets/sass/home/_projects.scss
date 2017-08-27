@@ -3,12 +3,49 @@
   position: relative;
   padding: 50px 0 0 0;
   box-sizing: border-box;
+  min-height: 110vh;
   @include clearfix;
   @include media(0,600){
     padding: 30px 0 15px;
   }
   @include media(0,420){
     padding: 0;
+  }
+  &.loading{
+    .loader{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 100px;
+      height: 100px;
+      margin: -50px -50px;
+      padding: 2px;
+      i{
+        width: 44px;
+        height: 44px;
+        float: left;
+        display: block;
+        background: #a9bec7;
+        margin: 3px 3px 3px 3px;
+        @include animation(tileAnimation 2s ease-in-out infinite);
+        &:nth-child(1){
+          -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+        }
+        &:nth-child(2){
+          -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+        }
+        &:nth-child(4){
+          -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+        }
+        &:nth-child(3){
+          -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+        }
+      }
+    }
   }
   h3{
     @include home-section-header;
@@ -29,12 +66,11 @@
     img{
       display: block;
       width: 100%;
-      @include animation(fadeIn 0.8s);
-      @include animation-easing(cubic-bezier(0.25, 0.46, 0.45, 0.94));
       margin: 0;
+      @include animation(growALittle 0.8s);
+      @include animation-easing(cubic-bezier(0.25, 0.46, 0.45, 0.94));
     }
     .text{
-      display: none;
       background: white;
       padding: 20px;
       box-sizing: border-box;
@@ -45,8 +81,13 @@
       bottom: 30px;
       text-align: center;
       transition: all 0.15s ease-in-out;
+      opacity: 0;
+      @include translate3d(0, 20px, 0);
       @include animation(textSlideUp 0.8s);
       @include animation-easing(cubic-bezier(0.25, 0.46, 0.45, 0.94));
+      @include animation-fill-mode(forwards);
+      -webkit-animation-delay: 0.25s;
+      animation-delay: 0.25s;
       p.meta{
         font-family: $font_header;
         text-transform: uppercase;
@@ -69,22 +110,6 @@
         bottom: 39px;
       }
     }
-    &.hidden{
-      display: block;
-      img, div{
-        display: none;
-      }
-      &:before{
-        content: '';
-        display: block;
-        height: 200px;
-        background: #bbbbbb;
-        width: 100%;
-        position: absolute;
-        left: 0;
-        top: 0;
-      }
-    }
   }
   .projects-container{
     @include clearfix;
@@ -92,5 +117,20 @@
     @include media(0,600){
       margin: 0;
     }
+  }
+}
+
+@include keyframes(tileAnimation){
+  0%{
+    background: #a9bec7;
+    @include scale(1,1);
+  }
+  20%{
+    background: #849ea9;
+    @include scale(1.1,1.1);
+  }
+  40%{
+    background: #a9bec7;
+    @include scale(1,1);
   }
 }

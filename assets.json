@@ -8,6 +8,7 @@
         "assets/js/router.js",
         "assets/js/util.js",
         "assets/js/hero.js",
+        "assets/js/projects.js",
         "assets/js/home.js"
       ]
     }
