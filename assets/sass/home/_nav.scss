@@ -1,5 +1,4 @@
 nav{
-  display: none;
   margin: 0;
   position: fixed;
   backface-visibility: hidden;
@@ -8,178 +7,98 @@ nav{
   right: 0;
   z-index: 10;
   box-sizing: border-box;
-  left: 0;
+  left: auto;
   bottom: 0;
-  background: #f2f2f2;
-  @include fadeIn(0.15s);
-  ul{
-    position: absolute;
-    top: 50%;
-    left: 50%;
+  background: black;
+  width: 250px;
+  @include translate3d(250px, 0, 0);
+  @include transitionTransform(0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94));
+
+  &.open{
+    @include translate3d(0, 0, 0);
+  }
+
+  .menu-toggle{
+
     display: block;
-    margin: 0 auto;
-    padding: 0;
-    width: 265px;
-    @include translate(-50%, -50%);
+    top: 0;
+    right: 100%;
+    cursor: pointer;
+    font-size: 34px;
+    z-index: 100;
+    padding: 29px 51px 32px 16px;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+    background: white;
+
+    span, span:before, span:after{
+      cursor: pointer;
+      height: 2px;
+      width: 37px;
+      background: black;
+      position: absolute;
+      display: block;
+      content: '';
+      transition: all 0.3s ease-in-out;
+    }
+
+    span{
+      &:before{
+        top: -13px;
+      }
+      &:after{
+        bottom: -13px;
+      }
+    }
+
+    &:hover{
+      span{
+        &,&:before,&:after{
+          background-color: #d300ff;
+        }
+      }
+    }
+
+    &.active{
+      background: #d300ff;
+      span{
+        background-color: transparent;
+        &:before, &:after{
+          top: 0;
+          background-color: white;
+        }
+        &:before{
+          @include rotate(45deg);
+        }
+        &:after{
+          @include rotate(-45deg);
+          width: 100%;
+          right: auto;
+        }
+      }
+      &:hover{
+        span:before, span:after{
+          background-color: white;
+        }
+      }
+    }
+  }
+  ul{
+    display: block;
+    padding: 45px 0 0 45px;
+    margin: 0;
     li{
       display: block;
       margin: 0;
       padding: 0;
-    }
-  }
-  a{
-    display: block;
-    position: relative;
-    margin: 0;
-    padding: 0;
-    line-height: 70px;
-    outline: none;
-    span{
-      font-size: 20px;
-      color: #656565;
-      transition: color 0.15s ease-in-out;
-    }
-    svg{
-      display: inline-block;
-      vertical-align: top;
-      color: #c5c5c5;
-      transition: fill 0.15s ease-in-out;
-      fill: #464646;
-    }
-    &:hover,&:active,&:focus{
-      span{
-        color: $color-base;
-      }
-      svg{
-        fill: $color-base;
-      }
-    }
-    &.about{
-      svg{
-        height: 39px;
-        width: 50px;
-        margin: 15px 12px 0 0;
-        @include media(450){
-          height: 58px;
-          width: 60px;
-          margin: 14px 20px 0 0;
-        }
-      }
-    }
-    &.contact{
-      svg{
-        width: 50px;
-        height: 37px;
-        margin: 18px 9px 0 0;
-        @include media(450){
-          width: 60px;
-          height: 54px;
-          margin: 18px 20px 0 0;
-        }
-      }
-    }
-    &.resume{
-      svg{
-        height: 38px;
-        margin: 17px 10px 0 0;
-        width: 50px;
-        @include media(450){
-          height: 54px;
-          margin: 16px 20px 0 0;
-          width: 60px;
-        }
-      }
-    }
-  }
-  @include media(450){
-    ul{
-      width: 330px;
-    }
-    a{
-      line-height: 90px;
-      span{
-        font-size: 22px;
-      }
-    }
-  }
-}
-
-body > header{
-  margin: 0 auto;
-  position: fixed;
-  left: 0;
-  right: 0;
-  height: 1px;
-  z-index: 10;
-}
-
-.menu-toggle{
-
-  display: block;
-  top: 0;
-  right: 0;
-  cursor: pointer;
-  font-size: 34px;
-  z-index: 100;
-  padding: 29px 51px 32px 16px;
-  position: absolute;
-  transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  outline: none;
-  background: white;
-
-  @include media(0,600){
-    right: 10px;
-    top: 10px;
-  }
-
-  span, span:before, span:after{
-    cursor: pointer;
-    height: 2px;
-    width: 37px;
-    background: black;
-    position: absolute;
-    display: block;
-    content: '';
-    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-
-  span{
-    &:before{
-      top: -13px;
-    }
-    &:after{
-      bottom: -13px;
-    }
-  }
-
-  &:hover{
-    background: white;
-    span{
-      &,&:before,&:after{
-        background-color: #d300ff;
-      }
-    }
-  }
-
-  &.active{
-    span{
-      background-color: transparent;
-      &:before, &:after{
-        top: 0;
-        background-color: #d300ff;
-      }
-      &:before{
-        @include rotate(45deg);
-      }
-      &:after{
-        @include rotate(-45deg);
-        width: 100%;
-        right: auto;
-      }
-    }
-    &:hover{
-      span:before, span:after{
-        background-color: #d300ff;
+      a{
+        line-height: 50px;
+        color: white;
+        font-size: 21px;
+        font-weight: 500;
+        font-family: $font_header;
+        transition: color 0.1s ease-in-out;
       }
     }
   }

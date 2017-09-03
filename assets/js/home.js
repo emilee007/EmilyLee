@@ -134,14 +134,14 @@
 
 	function _openMenu(){
 		$menu_toggle.addClass('active');
-		$nav.css('display','block');
+		$nav.addClass('open');
 		$body.on('click.menu', _closeMenu);
 	}
 
 	function _closeMenu(){
 		$body.off('click.menu');
 		$menu_toggle.removeClass('active');
-		$nav.css('display','');
+		$nav.removeClass('open');
 	}
 
 	var controller = {
