@@ -67,8 +67,6 @@
       display: block;
       width: 100%;
       margin: 0;
-      @include animation(growALittle 0.8s);
-      @include animation-easing(cubic-bezier(0.25, 0.46, 0.45, 0.94));
     }
     .text{
       background: white;
@@ -81,19 +79,13 @@
       bottom: 30px;
       text-align: center;
       transition: all 0.15s ease-in-out;
-      opacity: 0;
       @include translate3d(0, 20px, 0);
-      @include animation(textSlideUp 0.8s);
-      @include animation-easing(cubic-bezier(0.25, 0.46, 0.45, 0.94));
-      @include animation-fill-mode(forwards);
-      -webkit-animation-delay: 0.25s;
-      animation-delay: 0.25s;
       p.meta{
         font-family: $font_header;
         text-transform: uppercase;
         font-weight: 500;
         color: #797979;
-        font-size: 15px;
+        font-size: 14px;
         margin: 0 0 10px 0;
         transition: color 0.15s ease-in-out;
       }

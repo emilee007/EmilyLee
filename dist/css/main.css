@@ -391,7 +391,7 @@ html.home {
         display: block; }
   html.home section .belt {
     margin: 0 auto;
-    max-width: 1250px;
+    max-width: 1400px;
     padding: 0 30px;
     position: relative;
     box-sizing: border-box; }
@@ -494,7 +494,9 @@ nav {
   box-sizing: border-box;
   height: 100vh;
   background-size: cover;
-  overflow: hidden; }
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; }
   #hero svg.logo {
     position: absolute;
     left: 20px;
@@ -563,38 +565,36 @@ nav {
     position: absolute;
     bottom: 0;
     left: 50%;
-    transform: translate3d(-50%, 0, 0); }
+    transform: translate3d(-50%, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; }
   #hero .side-mountains {
     position: absolute;
     bottom: 0;
-    height: 40%;
+    height: 30%;
     left: 50%;
-    transform: translate3d(-50%, 0, 0); }
-  #hero .background-trees {
-    height: 40%;
+    transform: translate3d(-50%, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; }
+  #hero .trees {
     position: absolute;
-    bottom: -5%;
-    left: 50%;
-    transform: translate3d(-50%, 0, 0); }
-    #hero .background-trees svg {
-      fill: #050c13; }
-  #hero .front-trees {
-    height: 40%;
-    position: absolute;
-    bottom: -5%;
-    left: 50%;
-    transform: translate3d(-50%, 0, 0); }
-    #hero .front-trees svg {
-      fill: #050c13; }
+    height: 35%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url("../img/hero/background_trees_2.svg") center bottom repeat-x;
+    background-size: contain; }
   #hero .stars {
-    position: absolute;
+    position: fixed;
     background: url(../img/hero/stars.svg);
     width: 100%;
     height: 100%;
     left: 0;
     top: 0;
     right: 0;
-    bottom: 0; }
+    bottom: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; }
 
 #projects {
   background: #d4d4d4;
@@ -677,11 +677,7 @@ nav {
     #projects article img {
       display: block;
       width: 100%;
-      margin: 0;
-      -webkit-animation: growALittle 0.8s;
-      animation: growALittle 0.8s;
-      -webkit-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+      margin: 0; }
     #projects article .text {
       background: white;
       padding: 20px;
@@ -693,25 +689,16 @@ nav {
       bottom: 30px;
       text-align: center;
       transition: all 0.15s ease-in-out;
-      opacity: 0;
       -webkit-transform: translate3d(0, 20px, 0);
       /* Ch <36, Saf 5.1+, iOS, An =<4.4.4 */
       transform: translate3d(0, 20px, 0);
-      /* IE 10, Fx 16+, Op 12.1+ */
-      -webkit-animation: textSlideUp 0.8s;
-      animation: textSlideUp 0.8s;
-      -webkit-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      -webkit-animation-fill-mode: forwards;
-      animation-fill-mode: forwards;
-      -webkit-animation-delay: 0.25s;
-      animation-delay: 0.25s; }
+      /* IE 10, Fx 16+, Op 12.1+ */ }
       #projects article .text p.meta {
         font-family: "Raleway", Helvetica Neue, sans-serif;
         text-transform: uppercase;
         font-weight: 500;
         color: #797979;
-        font-size: 15px;
+        font-size: 14px;
         margin: 0 0 10px 0;
         transition: color 0.15s ease-in-out; }
       #projects article .text p.description {
@@ -799,6 +786,7 @@ nav {
         left: 0;
         right: 0; }
   #about .belt {
+    max-width: 1200px;
     padding: 50px 30px 0 30px;
     position: relative;
     box-sizing: border-box; }
@@ -815,6 +803,8 @@ nav {
       width: 60%; }
       #about .belt p:last-child {
         margin: 0; }
+    #about .belt a {
+      font-size: 20px; }
     @media only screen and (min-width: 0px) and (max-width: 1000px) and (min-height: 0px) and (max-height: 999999px) {
       #about .belt {
         padding: 45px 15px 0 15px; }

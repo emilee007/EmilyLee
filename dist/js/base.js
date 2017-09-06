@@ -1180,21 +1180,20 @@ window.Hero = function hero(){
     if(animateInterval) return;
     animateInterval = setTimeout(function(){
       draw();
-      animateInterval = false;
-    }, 20);
+      animateInterval = null;
+    }, 10);
   }
 
   function draw(){
     raf(function(){
       _updatePosMainMountain();
       _updatePosSideMountain();
-      //_updatePosFrontTrees();
     });
   }
 
   function _updatePosMainMountain(){
     var element = $main_mountain.get(0);
-    var translateY = (1 + last_scroll * .25).toFixed(2);
+    var translateY = (1 + last_scroll * .25).toFixed(1);
     var transform = 'translate3d(-50%, ' + translateY + 'px, 0)';
 
     element.style.transform = transform;
@@ -1203,22 +1202,12 @@ window.Hero = function hero(){
 
   function _updatePosSideMountain(){
     var element = $side_mountains.get(0);
-    var translateY = (1 + last_scroll * .4).toFixed(2);
+    var translateY = (1 + last_scroll * .4).toFixed(1);
     var transform = 'translate3d(-50%, ' + translateY + 'px, 0)';
 
     element.style.transform = transform;
     element.style.WebkitTransform = transform;
   }
-
-  function _updatePosFrontTrees(){
-    var element = $front_trees.get(0);
-    var translateY = -(1 + last_scroll * .05).toFixed(2);
-    var transform = 'translate3d(-50%, ' + translateY + 'px, 0)';
-
-    element.style.transform = transform;
-    element.style.WebkitTransform = transform;
-  }
-
 
   window.addEventListener("scroll", function() {
     last_scroll = window.scrollY;
