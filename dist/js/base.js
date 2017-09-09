@@ -1262,17 +1262,17 @@ window.Hero = function hero(){
     setTimeout(function(){
       var x0 = rand(0, right);
       var angle = rand(30, 150);
-      var duration = rand(500, 3000);
-      var brightness = rand(0, 6) / 10;
+      var duration = rand(1500, 2000);
+      var brightness = rand(2, 5) / 10;
 
       new ShootingStar($scope, 1, x0, angle, duration, brightness);
-    }, rand(0, 1000))
+    }, rand(500, 900))
 
   }
 
   function playShootingStars() {
 
-    shootingStarInterval = setInterval(generateRandomShootingStar, 2000);
+    shootingStarInterval = setInterval(generateRandomShootingStar, 2500);
 
   }
 
