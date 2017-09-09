@@ -3,6 +3,7 @@ window.Hero = function hero(){
   var $scope = $('#hero');
 
   var bottom = $scope.height();
+  var right = $scope.width();
 
   var $main_mountain = $scope.find('object.main-mountain');
   var $side_mountains = $scope.find('object.side-mountains');
@@ -10,6 +11,8 @@ window.Hero = function hero(){
   var last_scroll = 0;
 
   var animateInterval;
+
+  var shootingStarInterval;
 
   var raf = (function(){
     return window.requestAnimationFrame   ||
@@ -20,21 +23,22 @@ window.Hero = function hero(){
       };
   })();
 
-  function generateShootingStar(){
+  function generateRandomShootingStar() {
 
-    var v = {
-      x: 100,
-      m: 1.5,
-      d: 100
-    };
+    setTimeout(function(){
+      var x0 = rand(0, right);
+      var angle = rand(30, 150);
+      var duration = rand(500, 3000);
+      var brightness = rand(0, 6) / 10;
 
-    function animate(){
-      if(animateInterval) return;
-      animateInterval = setTimeout(function(){
-        draw();
-        animateInterval = null;
-      }, 10);
-    }
+      new ShootingStar($scope, 1, x0, angle, duration, brightness);
+    }, rand(0, 1000))
+
+  }
+
+  function playShootingStars() {
+
+    shootingStarInterval = setInterval(generateRandomShootingStar, 2000);
 
   }
 
@@ -77,5 +81,14 @@ window.Hero = function hero(){
       animate();
     }
   });
+
+  function rand(min,max) {
+
+    return Math.floor(Math.random()*(max-min+1)+min);
+
+  }
+
+  generateRandomShootingStar();
+  playShootingStars();
 
 };

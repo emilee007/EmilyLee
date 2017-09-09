@@ -1153,28 +1153,128 @@ var util = (function util(my){
   return my;
 
 })(util || {});
-window.Hero = function hero(){
+function ShootingStar($scope, zIndex, x0, angle, duration, brightness) {
 
-  var $scope = $('#hero');
+  'use strict';
 
-  var bottom = $scope.height();
+  var startTime = Date.now();
 
-  var $main_mountain = $scope.find('object.main-mountain');
-  var $side_mountains = $scope.find('object.side-mountains');
-  var $front_trees = $scope.find('object.front-trees');
-
-  var last_scroll = 0;
+  var heightOfScope = $scope.innerHeight() + 200;
+  var theta = angle * Math.PI / 180.0;
+  var totalDistance = Math.round(heightOfScope * Math.sin(theta));
+  var velocity = totalDistance / duration; //pixel/ms
 
   var animateInterval;
 
-  var raf = (function(){
-    return  window.requestAnimationFrame   ||
+  var raf = (function() {
+    return window.requestAnimationFrame   ||
       window.webkitRequestAnimationFrame ||
       window.mozRequestAnimationFrame    ||
       function( callback ){
         window.setTimeout(callback, 1000 / 60);
       };
   })();
+
+  var $element;
+
+  function createElement(){
+    var randomId = 'shooting-star-' + Math.floor(Math.random()*10000000);
+    $scope.prepend('<div id="' + randomId + '"></div>');
+    setTimeout(function(){
+      $element = $scope.find('#' + randomId);
+      applyCSS();
+      startAnimating();
+    }, 10)
+  }
+
+  function applyCSS(){
+    $element.css({
+      width: '150px',
+      height: '1px',
+      background: 'linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1))',
+      left: 0,
+      bottom: '100%',
+      zIndex: zIndex,
+      position: 'absolute',
+      opacity: brightness
+    });
+  }
+
+  function startAnimating() {
+    animateInterval = setInterval(function(){
+      raf(function(){
+
+        var t = Date.now() - startTime;
+
+        if(t >= duration) {
+          //finished!
+          clearInterval(animateInterval);
+          $element.remove();
+          return;
+        }
+
+        _updatePosition(t);
+      });
+    }, 10);
+  }
+
+  function _updatePosition(t) {
+
+    var x = Math.round(velocity * t * Math.cos(theta) + x0);
+    var y = Math.round(velocity * t * Math.sin(theta));
+
+    var transform = 'translate3d(' + x + 'px, ' + y + 'px, 0) rotate3d(0, 0, 1, ' + angle + 'deg)';
+
+    $element[0].style.transform = transform;
+    $element[0].style.WebkitTransform = transform;
+  }
+
+  createElement();
+
+}
+window.Hero = function hero(){
+
+  var $scope = $('#hero');
+
+  var bottom = $scope.height();
+  var right = $scope.width();
+
+  var $main_mountain = $scope.find('object.main-mountain');
+  var $side_mountains = $scope.find('object.side-mountains');
+
+  var last_scroll = 0;
+
+  var animateInterval;
+
+  var shootingStarInterval;
+
+  var raf = (function(){
+    return window.requestAnimationFrame   ||
+      window.webkitRequestAnimationFrame ||
+      window.mozRequestAnimationFrame    ||
+      function( callback ){
+        window.setTimeout(callback, 1000 / 60);
+      };
+  })();
+
+  function generateRandomShootingStar() {
+
+    setTimeout(function(){
+      var x0 = rand(0, right);
+      var angle = rand(30, 150);
+      var duration = rand(500, 3000);
+      var brightness = rand(0, 6) / 10;
+
+      new ShootingStar($scope, 1, x0, angle, duration, brightness);
+    }, rand(0, 1000))
+
+  }
+
+  function playShootingStars() {
+
+    shootingStarInterval = setInterval(generateRandomShootingStar, 2000);
+
+  }
 
   function animate(){
     if(animateInterval) return;
@@ -1215,6 +1315,15 @@ window.Hero = function hero(){
       animate();
     }
   });
+
+  function rand(min,max) {
+
+    return Math.floor(Math.random()*(max-min+1)+min);
+
+  }
+
+  generateRandomShootingStar();
+  playShootingStars();
 
 };
 window.Projects = function($scope){

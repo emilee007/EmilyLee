@@ -1,22 +1,17 @@
-/**
- * A shooting star object.
- * @param {number} x0 //starting point
- * @param {number} slope
- * @param {number} velocity
- * @constructor
- */
-function ShootingStar($scope, x0, slope, velocity) {
+function ShootingStar($scope, zIndex, x0, angle, duration, brightness) {
 
-  var vector = {
-    x: x0,
-    slope: slope,
-    velocity: velocity
-  };
+  'use strict';
 
-  var is_animating = true;
+  var startTime = Date.now();
+
+  var heightOfScope = $scope.innerHeight() + 200;
+  var theta = angle * Math.PI / 180.0;
+  var totalDistance = Math.round(heightOfScope * Math.sin(theta));
+  var velocity = totalDistance / duration; //pixel/ms
+
   var animateInterval;
 
-  var raf = (function(){
+  var raf = (function() {
     return window.requestAnimationFrame   ||
       window.webkitRequestAnimationFrame ||
       window.mozRequestAnimationFrame    ||
@@ -25,41 +20,60 @@ function ShootingStar($scope, x0, slope, velocity) {
       };
   })();
 
-  var css = {
-    width: '200px',
-    height: '1px',
-    background: 'linear-gradient(to left, rgba(255,255,255,0), rgba(255,255,255,1))',
-    transform: 'rotate3d(0, 0, 1, -45deg)',
-    left: 0,
-    bottom: 0,
-    zIndex: 1000,
-    position: 'absolute'
-  };
+  var $element;
 
-  var element;
+  function createElement(){
+    var randomId = 'shooting-star-' + Math.floor(Math.random()*10000000);
+    $scope.prepend('<div id="' + randomId + '"></div>');
+    setTimeout(function(){
+      $element = $scope.find('#' + randomId);
+      applyCSS();
+      startAnimating();
+    }, 10)
+  }
 
-  function animate(){
+  function applyCSS(){
+    $element.css({
+      width: '150px',
+      height: '1px',
+      background: 'linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1))',
+      left: 0,
+      bottom: '100%',
+      zIndex: zIndex,
+      position: 'absolute',
+      opacity: brightness
+    });
+  }
+
+  function startAnimating() {
     animateInterval = setInterval(function(){
       raf(function(){
-        _updatePosition(el);
+
+        var t = Date.now() - startTime;
+
+        if(t >= duration) {
+          //finished!
+          clearInterval(animateInterval);
+          $element.remove();
+          return;
+        }
+
+        _updatePosition(t);
       });
     }, 10);
-
   }
 
-  function _updatePosition(){
-    var element = $main_mountain.get(0);
-    var translateY = (1 + last_scroll * .25).toFixed(1);
-    var transform = 'translate3d(-50%, ' + translateY + 'px, 0)';
+  function _updatePosition(t) {
 
-    element.style.transform = transform;
-    element.style.WebkitTransform = transform;
+    var x = Math.round(velocity * t * Math.cos(theta) + x0);
+    var y = Math.round(velocity * t * Math.sin(theta));
+
+    var transform = 'translate3d(' + x + 'px, ' + y + 'px, 0) rotate3d(0, 0, 1, ' + angle + 'deg)';
+
+    $element[0].style.transform = transform;
+    $element[0].style.WebkitTransform = transform;
   }
 
-  //create element
-
-  //apply css
-
-
+  createElement();
 
 }
