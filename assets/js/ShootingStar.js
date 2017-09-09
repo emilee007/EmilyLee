@@ -6,7 +6,7 @@ function ShootingStar($scope, zIndex, x0, angle, duration, brightness) {
 
   var heightOfScope = $scope.innerHeight() + 200;
   var theta = angle * Math.PI / 180.0;
-  var totalDistance = Math.round(heightOfScope * Math.sin(theta));
+  var totalDistance = Math.round(heightOfScope * Math.sin(theta)) + 1000;
   var velocity = totalDistance / duration; //pixel/ms
 
   var animateInterval;

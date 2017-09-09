@@ -1161,7 +1161,7 @@ function ShootingStar($scope, zIndex, x0, angle, duration, brightness) {
 
   var heightOfScope = $scope.innerHeight() + 200;
   var theta = angle * Math.PI / 180.0;
-  var totalDistance = Math.round(heightOfScope * Math.sin(theta));
+  var totalDistance = Math.round(heightOfScope * Math.sin(theta)) + 1000;
   var velocity = totalDistance / duration; //pixel/ms
 
   var animateInterval;
@@ -1260,19 +1260,29 @@ window.Hero = function hero(){
   function generateRandomShootingStar() {
 
     setTimeout(function(){
+
       var x0 = rand(0, right);
       var angle = rand(30, 150);
-      var duration = rand(1500, 2000);
+      var duration = rand(1900, 2300);
       var brightness = rand(2, 5) / 10;
 
       new ShootingStar($scope, 1, x0, angle, duration, brightness);
-    }, rand(500, 900))
+
+    }, rand(0, 400))
 
   }
 
   function playShootingStars() {
 
-    shootingStarInterval = setInterval(generateRandomShootingStar, 2500);
+    if(shootingStarInterval) return;
+    shootingStarInterval = setInterval(generateRandomShootingStar, 1500);
+
+  }
+
+  function stopShootingStars() {
+
+    clearInterval(shootingStarInterval);
+    shootingStarInterval = null;
 
   }
 
@@ -1313,6 +1323,9 @@ window.Hero = function hero(){
     last_scroll = window.scrollY;
     if(last_scroll < bottom){
       animate();
+      playShootingStars();
+    } else {
+      stopShootingStars(); //don't play shooting stars if not visible
     }
   });
 
@@ -1324,6 +1337,11 @@ window.Hero = function hero(){
 
   generateRandomShootingStar();
   playShootingStars();
+
+  return {
+    playShootingStars: playShootingStars,
+    stopShootingStars: stopShootingStars
+  }
 
 };
 window.Projects = function($scope){
@@ -1372,7 +1390,7 @@ window.Projects = function($scope){
 		//feature detection
 		util.featureDetect();
 
-		//init parallax
+		//init hero
 		new Hero();
 
 		//bind events

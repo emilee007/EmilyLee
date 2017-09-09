@@ -15,7 +15,7 @@
 		//feature detection
 		util.featureDetect();
 
-		//init parallax
+		//init hero
 		new Hero();
 
 		//bind events
