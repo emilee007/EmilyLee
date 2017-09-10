@@ -7,10 +7,12 @@ window.Hero = function hero(){
 
   var $main_mountain = $scope.find('object.main-mountain');
   var $side_mountains = $scope.find('object.side-mountains');
+  var mainMtn = $main_mountain.get(0);
+  var sideMtn = $side_mountains.get(0);
 
   var last_scroll = 0;
 
-  var animateInterval;
+  var animateTimeout;
 
   var shootingStarInterval;
 
@@ -27,9 +29,9 @@ window.Hero = function hero(){
 
     setTimeout(function(){
 
-      var x0 = rand(0, right);
+      var x0 = rand(50, right - 50);
       var angle = rand(30, 150);
-      var duration = rand(1900, 2300);
+      var duration = rand(1500, 2000);
       var brightness = rand(2, 5) / 10;
 
       new ShootingStar($scope, 1, x0, angle, duration, brightness);
@@ -41,7 +43,7 @@ window.Hero = function hero(){
   function playShootingStars() {
 
     if(shootingStarInterval) return;
-    shootingStarInterval = setInterval(generateRandomShootingStar, 1500);
+    shootingStarInterval = setInterval(generateRandomShootingStar, 1200);
 
   }
 
@@ -53,53 +55,45 @@ window.Hero = function hero(){
   }
 
   function animate(){
-    if(animateInterval) return;
-    animateInterval = setTimeout(function(){
-      draw();
-      animateInterval = null;
-    }, 10);
-  }
-
-  function draw(){
-    raf(function(){
-      _updatePosMainMountain();
-      _updatePosSideMountain();
-    });
-  }
-
-  function _updatePosMainMountain(){
-    var element = $main_mountain.get(0);
-    var translateY = (1 + last_scroll * .25).toFixed(1);
-    var transform = 'translate3d(-50%, ' + translateY + 'px, 0)';
-
-    element.style.transform = transform;
-    element.style.WebkitTransform = transform;
-  }
-
-  function _updatePosSideMountain(){
-    var element = $side_mountains.get(0);
-    var translateY = (1 + last_scroll * .4).toFixed(1);
-    var transform = 'translate3d(-50%, ' + translateY + 'px, 0)';
-
-    element.style.transform = transform;
-    element.style.WebkitTransform = transform;
-  }
-
-  window.addEventListener("scroll", function() {
-    last_scroll = window.scrollY;
-    if(last_scroll < bottom){
-      animate();
-      playShootingStars();
-    } else {
-      stopShootingStars(); //don't play shooting stars if not visible
+    if(animateTimeout){
+      return;
     }
-  });
+    animateTimeout = setTimeout(function(){
+
+      last_scroll = window.scrollY;
+
+      if(last_scroll < bottom){
+        raf(function(){
+          _updateMtns();
+        });
+        playShootingStars();
+      } else {
+        stopShootingStars();
+      }
+
+      animateTimeout = null;
+    }, 20);
+  }
+
+  function _updateMtns(){
+
+    var translateY = Math.round((1 + last_scroll * .25));
+    var transform = 'translate3d(-50%, ' + translateY + 'px, 0)';
+
+    mainMtn.style.transform = transform;
+    mainMtn.style.WebkitTransform = transform;
+
+    sideMtn.style.transform = transform;
+    sideMtn.style.WebkitTransform = transform;
+  }
 
   function rand(min,max) {
 
     return Math.floor(Math.random()*(max-min+1)+min);
 
   }
+
+  window.addEventListener("scroll", animate);
 
   generateRandomShootingStar();
   playShootingStars();
