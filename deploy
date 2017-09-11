@@ -9,9 +9,9 @@ then
 	echo " "
 	echo " "
 	echo "----------------------------------------------------"
-    echo "Pushing files to mhweiner.com...";
+    echo "Pushing files to emilylee.org...";
     echo "----------------------------------------------------"
-	rsync -avH --delete --exclude '.idea' --exclude '.git' --exclude 'build_scripts' --exclude 'node_modules' --exclude 'npm-debug*' --exclude 'deploy' --exclude 'assets' ./ root@ciroapp.com:/var/www/mhweiner/
+	rsync -avH --delete --exclude '.idea' --exclude '.git' --exclude 'node_modules' --exclude 'npm-debug*' --exclude 'deploy' --exclude 'assets' ./ root@138.197.26.22/:/var/www/html/
     echo "----------------------------------------------------"
     echo "Build complete. ^_^";
     echo "----------------------------------------------------"
