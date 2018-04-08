@@ -11,8 +11,9 @@ cd ~/EmilyLee
 ```
 sass --watch assets/sass/main.scss:assets/css/main.css
 ```
-4. Launch web server
+4. Launch web server (in new Terminal tab)
 ```
+cd ~/EmilyLee
 em
 ```
 
