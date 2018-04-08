@@ -19,4 +19,8 @@ em
 
 ## To deploy to production
 
-`./deploy`
+1. Make sure sass watch is no longer running by closing that tab
+```
+cd ~/EmilyLee
+./deploy
+```
