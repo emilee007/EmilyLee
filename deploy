@@ -10,7 +10,7 @@ then
 	echo "----------------------------------------------------"
     echo "Pushing files to emilylee.org...";
     echo "----------------------------------------------------"
-	rsync -avH --delete --exclude '.idea' --exclude '.git' --exclude 'node_modules' --exclude 'npm-debug*' --exclude 'deploy' ./ root@138.197.26.22/:/var/www/html/
+	rsync -avH --delete --exclude '.idea' --exclude '.git' ./ root@emilylee.org:/var/www/html/
     echo "----------------------------------------------------"
     echo "Build complete. ^_^";
     echo "----------------------------------------------------"
