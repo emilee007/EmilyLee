@@ -2,5 +2,5 @@
 .idea
 node_modules
 dist
-assets/.sass-cache
 assets/css/main.css.map
+.sass-cache
